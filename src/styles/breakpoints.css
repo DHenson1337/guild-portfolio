@@ -1,0 +1,36 @@
+/* src/styles/breakpoints.css */
+:root {
+  /* Breakpoint values that we'll use throughout the site */
+  --mobile: 320px;
+  --tablet: 768px;
+  --desktop: 1024px;
+  --large-desktop: 1440px;
+}
+
+/* We can create reusable classes for responsive design */
+.responsive-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Tablet screens */
+@media screen and (min-width: 768px) {
+  .responsive-container {
+    max-width: 720px;
+  }
+}
+
+/* Desktop screens */
+@media screen and (min-width: 1024px) {
+  .responsive-container {
+    max-width: 960px;
+  }
+}
+
+/* Large desktop screens */
+@media screen and (min-width: 1440px) {
+  .responsive-container {
+    max-width: 1200px;
+  }
+}

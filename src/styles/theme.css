@@ -1,0 +1,45 @@
+:root {
+  /* Base colors for light theme */
+  --primary-light: #1e3a8a; /* Royal blue */
+  --secondary-light: #c0a080; /* Wooden brown */
+  --background-light: #f5f5dc; /* Parchment */
+  --text-light: #2c3e50; /* Dark slate */
+  --accent-light: #ffd700; /* Gold */
+
+  /* Base colors for dark theme */
+  --primary-dark: #0ea5e9; /* Glowing blue */
+  --secondary-dark: #8b4513; /* Dark wood */
+  --background-dark: #1a1a1a; /* Deep black */
+  --text-dark: #e5e5e5; /* Light gray */
+  --accent-dark: #c0c0c0; /* Silver */
+
+  /* Functional colors */
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --magical-glow: 0 0 10px var(--primary-dark);
+
+  /* Spacing */
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
+
+  /* Border radius */
+  --border-radius: 0.5rem;
+}
+
+/* Default to light theme */
+body {
+  --primary: var(--primary-light);
+  --secondary: var(--secondary-light);
+  --background: var(--background-light);
+  --text: var(--text-light);
+  --accent: var(--accent-light);
+}
+
+/* Dark theme class */
+body.dark-theme {
+  --primary: var(--primary-dark);
+  --secondary: var(--secondary-dark);
+  --background: var(--background-dark);
+  --text: var(--text-dark);
+  --accent: var(--accent-dark);
+}
