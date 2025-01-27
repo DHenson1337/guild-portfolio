@@ -1,0 +1,297 @@
+/* src/components/layout/Layout.css */
+
+/* Todo Cleanup Css to remove duplicates */
+
+/* Proffesional Styled Navbar */
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4rem; /* Increased spacing between links */
+  justify-content: center;
+}
+
+.nav-item {
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+/* Fantasy-themed styles for the main navigation */
+.nav-item > a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: "MedievalSharp", cursive;
+  position: relative;
+}
+
+/* Hover effect for main links */
+.nav-item > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover > a::after {
+  width: 100%;
+}
+
+/* Fantasy-themed dropdown */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--background);
+  border: 2px solid var(--wood-dark);
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Show dropdown on hover */
+.nav-item:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Fancy scroll-like styling for dropdown items */
+.dropdown-content a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  margin: 0.25rem 0;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+/* Optional: Add a decorative arrow */
+.dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--wood-dark);
+}
+
+/* Navigation styles */
+header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--wood-dark);
+}
+header nav {
+  display: flex;
+  gap: 2rem; /* Adds consistent spacing between navigation links */
+  align-items: center;
+}
+
+header a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: "MedievalSharp", cursive;
+}
+
+header a:hover {
+  color: var(--accent);
+}
+
+.theme-toggle {
+  justify-self: end;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+/* Navigation link styling */
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: "MedievalSharp", cursive;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Footer navigation - keeping consistent styling */
+footer {
+  background-color: var(--wood-dark);
+  padding: 1rem 2rem;
+}
+
+footer nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+footer a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header Styles */
+header {
+  padding: var(--spacing-medium);
+  background-color: var(--secondary);
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Title positioning */
+header h1 {
+  justify-self: start;
+  font-family: "MedievalSharp", cursive;
+  margin: 0;
+}
+
+.theme-toggle {
+  background-color: transparent;
+  border: 2px solid var(--accent);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+/* Main Content Area */
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Fixed sidebar width */
+  gap: var(--spacing-large);
+  padding: var(--spacing-large);
+  max-width: var(--desktop);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Receptionist sidebar stays fixed while scrolling */
+.receptionist-container {
+  position: sticky;
+  top: calc(var(--spacing-large) + 60px); /* Account for header height */
+  height: fit-content;
+  background-color: var(--secondary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-medium);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.content {
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-medium);
+  min-height: 500px; /* Minimum height for content area */
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--secondary);
+  padding: var(--spacing-large);
+  margin-top: auto;
+}
+
+footer nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-large);
+  max-width: var(--desktop);
+  margin: 0 auto;
+}
+
+footer a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .receptionist-container {
+    position: relative;
+    top: 0;
+  }
+
+  header {
+    padding: var(--spacing-small);
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  footer nav {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-medium);
+  }
+}
