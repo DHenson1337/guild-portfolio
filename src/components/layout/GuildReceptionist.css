@@ -7,7 +7,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  /* Remove padding to eliminate spacing issues */
+  background: transparent; /* Ensure container is transparent */
 }
 
 /* Character styling with enhanced effects */
@@ -15,8 +16,8 @@
   position: relative;
   width: 300px;
   height: auto;
-  /* Enhanced glow effect for character */
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+  /* Adjust glow effect to be more subtle */
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.05));
 }
 
 /* Image transitions for smooth expression changes */
@@ -53,7 +54,7 @@
   padding: 1rem;
   margin-top: 1rem;
   max-width: 280px;
-  /* Enhanced fantasy-themed shadow */
+  z-index: 4; /* Ensure dialogue is always on top */
   box-shadow: 0 4px 15px rgba(96, 165, 250, 0.1);
 }
 

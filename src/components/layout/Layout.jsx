@@ -1,32 +1,33 @@
 // src/components/layout/Layout.jsx
 import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router";
-import GuildReceptionist from "./GuildReceptionist";
+import GuildDesk from "../guild/GuildDesk";
 import "./Layout.css";
 
 function Layout() {
-  const [isDarkTheme, setIsDarkTheme] = useState(true); // Default to dark theme
+  // Theme management
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   useEffect(() => {
-    // Apply theme class to body element
     document.body.classList.toggle("dark-theme", isDarkTheme);
   }, [isDarkTheme]);
 
   const toggleTheme = () => {
     setIsDarkTheme((prev) => !prev);
   };
+
   return (
     <div className="layout">
+      {/* Header Section - This stays largely the same */}
       <header>
         <h1>The Guild Reception Desk</h1>
         <nav className="nav-container">
           <div className="nav-links">
-            {/* Professional Sections */}
+            {/* Navigation Items */}
             <div className="nav-item">
               <Link to="/">About</Link>
               <div className="dropdown-content">
                 <Link to="/">Reception</Link>
-                {/* Add more related links if needed */}
               </div>
             </div>
 
@@ -34,7 +35,6 @@ function Layout() {
               <Link to="/library">Skills</Link>
               <div className="dropdown-content">
                 <Link to="/library">Library</Link>
-                {/* Add skill categories or other relevant links */}
               </div>
             </div>
 
@@ -42,7 +42,6 @@ function Layout() {
               <Link to="/quests">Projects</Link>
               <div className="dropdown-content">
                 <Link to="/quests">Quest Board</Link>
-                {/* Add project categories */}
               </div>
             </div>
 
@@ -50,7 +49,6 @@ function Layout() {
               <Link to="/bounties">Experience</Link>
               <div className="dropdown-content">
                 <Link to="/bounties">Bounty Hall</Link>
-                {/* Add experience categories */}
               </div>
             </div>
           </div>
@@ -67,15 +65,14 @@ function Layout() {
         </nav>
       </header>
 
-      <main>
-        <div className="receptionist-container">
-          <GuildReceptionist />
-        </div>
-        <div className="content">
+      {/* Main Content Area */}
+      <main className="main-content">
+        <GuildDesk>
           <Outlet />
-        </div>
+        </GuildDesk>
       </main>
 
+      {/* Footer Section */}
       <footer>
         <nav>
           <Link to="/resume">Resume</Link>

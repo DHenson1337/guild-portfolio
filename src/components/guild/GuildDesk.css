@@ -1,0 +1,233 @@
+/* src/components/guild/GuildDesk.css */
+
+/* Main layout container with development border */
+.guild-area {
+  position: relative;
+  width: 100%;
+  min-height: 900px;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+  padding: 0.9rem;
+  /* overflow: hidden; */
+  border: 2px solid var(--accent-dark);
+  border-radius: var(--border-radius);
+  background: transparent;
+}
+
+/* Character section with visible boundary */
+.character-section {
+  position: relative;
+  min-height: 600px;
+  /* Removed padding-top to help with dialogue positioning */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: 1px dashed var(--accent-dark);
+  border-radius: var(--border-radius);
+}
+
+/* Character container for precise positioning */
+.character-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Changed from flex-end for better positioning */
+}
+
+/* Enlarged and repositioned character */
+.character {
+  position: absolute;
+  bottom: 100px; /* Adjusted to hide more behind desk */
+  width: 400px; /* Increased from 350px */
+  z-index: 2;
+  transform: translateY(20%); /* Helps position character behind desk */
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+.character-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+/* Repositioned dialogue box */
+.dialogue-box {
+  position: absolute;
+  top: 100px; /* Fixed position above character head */
+  transform: translateX(-50%) translateY(-20%);
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--background-dark);
+  border: 2px solid var(--accent-dark);
+  border-radius: 12px;
+  padding: 1rem;
+  width: 280px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 4;
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.1);
+}
+
+/* Adjusted dialogue pointer */
+.dialogue-box::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--accent-dark);
+}
+
+/* Content section with visible boundary */
+.content-section {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+  min-height: 400px;
+  margin-bottom: 400px;
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  border: 1px dashed var(--accent-dark);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Desk styling */
+.desk {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 350px;
+  z-index: 3;
+}
+
+/* Desk top surface */
+.desk-top {
+  position: absolute;
+  bottom: 300px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--secondary-light);
+  border: 2px solid var(--accent-dark);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Enhanced desk shadow */
+.desk-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
+  border-radius: 4px 4px 0 0;
+}
+
+/* Desk front panel */
+.desk-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background-color: var(--secondary-light);
+  border: 2px solid var(--accent-dark);
+  border-top: none;
+}
+
+/* Desk decorations */
+.desk-decorations {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.desk-decoration-line {
+  width: 40px;
+  height: 2px;
+  background-color: var(--accent-dark);
+  box-shadow: 0 0 5px rgba(96, 165, 250, 0.3);
+}
+
+/* Left side patterns */
+.desk-patterns {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.desk-pattern-line {
+  width: 30px;
+  height: 2px;
+  background-color: var(--accent-dark);
+  box-shadow: 0 0 5px rgba(96, 165, 250, 0.3);
+}
+
+/* Dark theme enhancements */
+.dark-theme .desk {
+  filter: drop-shadow(0 -5px 15px rgba(96, 165, 250, 0.1));
+}
+
+.dark-theme .desk-decoration-line,
+.dark-theme .desk-pattern-line {
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .guild-area {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.7rem;
+    min-height: 700px;
+  }
+
+  .character {
+    width: 300px;
+    bottom: 120px;
+  }
+
+  .dialogue-box {
+    width: 220px;
+    top: 80px;
+  }
+
+  .content-section {
+    margin-bottom: 300px;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .character {
+    width: 250px;
+    bottom: 100px;
+  }
+
+  .dialogue-box {
+    width: 180px;
+    top: 60px;
+    padding: 0.75rem;
+  }
+
+  .desk-decorations,
+  .desk-patterns {
+    display: none;
+  }
+}
