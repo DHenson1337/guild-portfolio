@@ -8,10 +8,14 @@
 
   /* Base colors for dark theme */
   --primary-dark: #0ea5e9; /* Glowing blue */
-  --secondary-dark: #8b4513; /* Dark wood */
+  --secondary-dark: #132f8b; /* A Guild Blue */
   --background-dark: #1a1a1a; /* Deep black */
-  --text-dark: #e5e5e5; /* Light gray */
-  --accent-dark: #c0c0c0; /* Silver */
+  --text-dark: #ffffff; /* Pure white for maximum contrast */
+  --accent-dark: #60a5fa; /* Lighter blue for accents */
+
+  /* Navigation highlight colors */
+  --nav-highlight-light: rgba(255, 255, 255, 0.1);
+  --nav-highlight-dark: rgba(255, 255, 255, 0.2);
 
   /* Functional colors */
   --shadow-color: rgba(0, 0, 0, 0.2);
@@ -24,6 +28,34 @@
 
   /* Border radius */
   --border-radius: 0.5rem;
+}
+
+/* Navigation link styles */
+.nav-links a {
+  color: var(--text-dark); /* Always white text in header */
+  position: relative;
+  z-index: 1;
+}
+
+.nav-links a:hover {
+  color: var(--text-dark); /* Maintain white text on hover */
+}
+
+/* Create a subtle highlight effect that doesn't interfere with text */
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-dark);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::before {
+  transform: scaleX(1);
 }
 
 /* Default to light theme */

@@ -1,0 +1,95 @@
+/* src/components/layout/GuildReceptionist.css */
+
+/* Container and base positioning */
+.receptionist-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Character styling with enhanced effects */
+.receptionist-character {
+  position: relative;
+  width: 300px;
+  height: auto;
+  /* Enhanced glow effect for character */
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
+/* Image transitions for smooth expression changes */
+.receptionist-image {
+  width: 100%;
+  height: auto;
+  /* Faster transition for blinks, slower for other expressions */
+  transition: opacity 0.1s ease-in-out;
+}
+
+/* Enhanced dark mode effects */
+.dark-theme .receptionist-container {
+  filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.2));
+}
+
+/* Hair animation */
+.receptionist-character::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: hairFloat 6s ease-in-out infinite;
+}
+
+/* Enhanced dialogue box with better visibility */
+.dialogue-box {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--background-dark);
+  border: 2px solid var(--accent-dark);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1rem;
+  max-width: 280px;
+  /* Enhanced fantasy-themed shadow */
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.1);
+}
+
+/* Dialogue box arrow with matching border color */
+.dialogue-box::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--accent-dark);
+}
+
+/* Animation keyframes */
+@keyframes hairFloat {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(0.5deg);
+  }
+  75% {
+    transform: rotate(-0.5deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .receptionist-character {
+    width: 200px;
+  }
+
+  .dialogue-box {
+    max-width: 220px;
+  }
+}
