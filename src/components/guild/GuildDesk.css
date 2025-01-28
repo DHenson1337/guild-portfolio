@@ -9,7 +9,6 @@
   grid-template-columns: 350px 1fr;
   gap: 2rem;
   padding: 0.9rem;
-  /* overflow: hidden; */
   border: 2px solid var(--accent-dark);
   border-radius: var(--border-radius);
   background: transparent;
@@ -19,7 +18,6 @@
 .character-section {
   position: relative;
   min-height: 600px;
-  /* Removed padding-top to help with dialogue positioning */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,16 +33,16 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; /* Changed from flex-end for better positioning */
+  align-items: center;
 }
 
 /* Enlarged and repositioned character */
 .character {
   position: absolute;
-  bottom: 100px; /* Adjusted to hide more behind desk */
-  width: 400px; /* Increased from 350px */
+  bottom: 100px;
+  width: 400px;
   z-index: 2;
-  transform: translateY(20%); /* Helps position character behind desk */
+  transform: translateY(20%);
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
 }
 
@@ -58,7 +56,7 @@
 /* Repositioned dialogue box */
 .dialogue-box {
   position: absolute;
-  top: 100px; /* Fixed position above character head */
+  top: 100px;
   transform: translateX(-50%) translateY(-20%);
   background-color: rgba(255, 255, 255, 0.95);
   color: var(--background-dark);
@@ -105,19 +103,27 @@
   right: 0;
   height: 350px;
   z-index: 3;
+  background: linear-gradient(
+    to bottom,
+    #8b5e3c,
+    #5c3b1e
+  ); /* Wooden gradient */
+  border-top: 4px solid var(--accent-dark);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4), 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Desk top surface */
+/* Desk top surface with 3D styling */
 .desk-top {
   position: absolute;
   bottom: 300px;
   left: 0;
   right: 0;
   height: 50px;
-  background-color: var(--secondary-light);
-  border: 2px solid var(--accent-dark);
+  background: linear-gradient(to bottom, #d4a373, #b5845c);
+  border: 3px solid var(--accent-dark);
   border-bottom: none;
-  border-radius: 4px 4px 0 0;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Enhanced desk shadow */
@@ -127,23 +133,28 @@
   left: 0;
   right: 0;
   height: 10px;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
-  border-radius: 4px 4px 0 0;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.4), transparent);
+  border-radius: 6px 6px 0 0;
 }
 
-/* Desk front panel */
+/* Desk front panel with decorative elements */
 .desk-front {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 300px;
-  background-color: var(--secondary-light);
-  border: 2px solid var(--accent-dark);
+  background: linear-gradient(to bottom, #7b4b2a, #4e2b14);
+  border: 3px solid var(--accent-dark);
   border-top: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Desk decorations */
+/* Decorative accents for the desk */
 .desk-decorations {
   position: absolute;
   top: 10px;
@@ -152,13 +163,29 @@
   height: 30px;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .desk-decoration-line {
+  width: 60px;
+  height: 5px;
+  background: var(--accent-dark);
+  box-shadow: 0 0 10px rgba(255, 223, 0, 0.5);
+  border-radius: 4px;
+}
+
+/* Optional glowing decorative lines for fantasy feel */
+.dark-theme .desk-decoration-line {
+  background: var(--accent-light);
+  box-shadow: 0 0 12px var(--accent-light);
+}
+
+/* Add glowing patterns */
+.desk-pattern-line {
   width: 40px;
-  height: 2px;
-  background-color: var(--accent-dark);
-  box-shadow: 0 0 5px rgba(96, 165, 250, 0.3);
+  height: 3px;
+  background: var(--accent-dark);
+  box-shadow: 0 0 6px rgba(255, 223, 0, 0.4);
 }
 
 /* Left side patterns */
@@ -170,13 +197,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
-
-.desk-pattern-line {
-  width: 30px;
-  height: 2px;
-  background-color: var(--accent-dark);
-  box-shadow: 0 0 5px rgba(96, 165, 250, 0.3);
 }
 
 /* Dark theme enhancements */
