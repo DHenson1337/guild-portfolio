@@ -1,6 +1,7 @@
 // src/components/guild/GuildDesk.jsx
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useGuild, EXPRESSIONS } from "../../context/GuildContext";
 import "./GuildDesk.css";
 
 // Import character expressions
@@ -9,65 +10,40 @@ import Ribbon2 from "../../assets/images/Ribbon2.png";
 import Ribbon3 from "../../assets/images/Ribbon3.png";
 import Ribbon4 from "../../assets/images/Ribbon4.png";
 
-function GuildDesk({ children }) {
-  // State management for character expressions and dialogue
-  const [currentExpression, setCurrentExpression] = useState(Ribbon1);
-  const [dialogue, setDialogue] = useState(
-    "Feel free to ask me about any of our facilities!"
-  );
+const expressionMap = {
+  [EXPRESSIONS.TALKING]: Ribbon1, // Speaking pose
+  [EXPRESSIONS.NEUTRAL]: Ribbon2, // Default, eyes open
+  [EXPRESSIONS.CLOSED]: Ribbon3, // Blinking
+  [EXPRESSIONS.HAPPY]: Ribbon4, // Happy/casual smile
+};
 
-  // Theme colors for desk styling
-  const woodColor = "var(--secondary-light)";
-  const accentColor = "var(--accent-dark)";
+function GuildDesk({ children, title = "Guild Reception Desk" }) {
+  const {
+    dialogue,
+    currentExpression,
+    isInteractionEnabled,
+    handleCharacterClick,
+    blink,
+  } = useGuild();
 
-  // Handle character blinking with improved timing
+  // Handle natural blinking
   useEffect(() => {
-    let isBlinking = false;
-    let blinkTimeout;
-
-    const blink = () => {
-      if (!isBlinking) {
-        isBlinking = true;
-        setCurrentExpression(Ribbon3); // Close eyes
-
-        // Open eyes after short duration
-        blinkTimeout = setTimeout(() => {
-          setCurrentExpression(Ribbon2);
-          isBlinking = false;
-        }, 150);
-      }
-    };
-
-    // Set up recurring blink with random intervals
     const blinkInterval = setInterval(() => {
-      blink();
-    }, Math.random() * 4000 + 2000); // Random interval between 2-6 seconds
+      if (Math.random() < 0.2) {
+        // 20% chance to blink each interval
+        blink();
+      }
+    }, 3000); // Check every 3 seconds
 
-    // Cleanup function to prevent memory leaks
-    return () => {
-      clearInterval(blinkInterval);
-      clearTimeout(blinkTimeout);
-    };
-  }, []);
+    return () => clearInterval(blinkInterval);
+  }, [blink]);
 
   return (
     <div className="guild-area">
-      {/* Character Section with integrated dialogue */}
       <div className="character-section">
         <div className="character-container">
-          {/* Dialogue box with improved positioning */}
           <motion.div
-            className="dialogue-box"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {dialogue}
-          </motion.div>
-
-          {/* Character with breathing animation */}
-          <motion.div
-            className="character"
+            className="character-wrapper"
             animate={{ y: [-2, 2] }}
             transition={{
               repeat: Infinity,
@@ -76,17 +52,39 @@ function GuildDesk({ children }) {
               ease: "easeInOut",
             }}
           >
-            <img
-              src={currentExpression}
-              alt="Guild Receptionist"
-              className="character-image"
-            />
+            {/* Dialogue Box */}
+            <motion.div
+              className="dialogue-box"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {dialogue}
+            </motion.div>
+
+            {/* Character */}
+            <div
+              className="character"
+              onClick={handleCharacterClick}
+              style={{
+                cursor: isInteractionEnabled ? "pointer" : "default",
+              }}
+            >
+              <img
+                src={expressionMap[currentExpression]}
+                alt="Guild Receptionist"
+                className="character-image"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Content Section for routed components */}
-      <div className="content-section">{children}</div>
+      {/* Content Section with Title */}
+      <div className="content-section">
+        <h2 className="content-title">{title}</h2>
+        {children}
+      </div>
 
       {/* Enhanced desk with decorative elements */}
       <div className="desk">
