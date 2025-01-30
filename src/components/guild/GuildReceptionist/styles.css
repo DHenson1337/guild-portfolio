@@ -21,23 +21,13 @@
 
 .character-wrapper {
   position: absolute;
-  bottom: 0; /* Anchor to the bottom of the parent .left-panel */
+  bottom: 0;
   transform: translateY(-50%);
-  /* This shifts the character upward by 50% of her height, 
-     letting her upper body show behind the desk. */
+  z-index: 1; /* if you want her in front of desk's top edge */
 
-  /* RESPONSIVE SIZING:
-     Scale the character with the viewport width but clamp it 
-     so she never becomes too small or too huge.
-  */
-  width: 18vw; /* Character scales with screen width */
-  min-width: 300px; /* but not smaller than 200px */
-  max-width: 380px; /* and not bigger than 380px */
-
-  z-index: 1;
-  /* If you want Ribbon IN FRONT of the desk’s top edge, 
-     raise her z-index higher than the desk’s, e.g. z-index: 3.
-     If you want her behind the desk, use a lower z-index than the desk. */
+  /* Instead of purely vw, clamp it so it won’t be too big or too small */
+  width: clamp(180px, 15vw, 380px);
+  /* 15vw is the “ideal,” 180px is the min, 380px is the max */
 }
 
 /* Character & Image */
@@ -109,5 +99,22 @@
 
   .dialogue-box {
     width: 180px;
+  }
+}
+
+/* If screen is wider than 1800px, 
+   you might allow Ribbon to be a bit bigger. */
+@media (min-width: 1800px) {
+  .character-wrapper {
+    width: 20vw; /* Slightly bigger for large displays */
+    max-width: 500px;
+  }
+}
+
+/* If screen is narrower than 800px, 
+     maybe reduce her bottom offset or transform so we see more above the desk */
+@media (max-width: 800px) {
+  .character-wrapper {
+    transform: translateY(-40%); /* shift her a little less upward */
   }
 }

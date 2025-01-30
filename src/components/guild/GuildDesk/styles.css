@@ -25,15 +25,22 @@
 
 /* Desk Section */
 .desk {
-  position: absolute; /* so it sticks to the bottom of the .left-panel */
+  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 250px; /* pick a height you like */
+
+  /* Example: 
+     - Minimum 120px tall
+     - “ideal” is 15% of the viewport height
+     - maximum 220px
+  */
+  height: clamp(190px, 15vh, 220px);
+
   background: linear-gradient(to bottom, #9b5726, #4a2409);
-  border-top: 3px solid #6a3d1e; /* give it a border if you want */
+  border-top: 3px solid #6a3d1e;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
-  z-index: 2; /* so it’s in front of background, behind Ribbon if you want that look */
+  z-index: 2; /* behind or in front of Ribbon, depending on your preference */
 }
 
 .desk-top {
@@ -78,5 +85,11 @@
 
   .content-section {
     margin-left: 200px; /* Give space for character on mobile */
+  }
+}
+
+@media (max-width: 1920px) {
+  .desk {
+    height: clamp(320px, 20vh, 400px); /* Increase height */
   }
 }

@@ -16,6 +16,60 @@ function Reception() {
       <div className="right-panel">
         {/* This will eventually hold your scrollable content like a quest board */}
         <h2>Right Panel Content Goes Here</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod odio
+          aspernatur reprehenderit vel asperiores ex cumque, vitae voluptatum
+          aperiam corrupti, temporibus quaerat quo! Explicabo, quos neque esse
+          quasi a officiis!
+        </p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod odio
+          aspernatur reprehenderit vel asperiores ex cumque, vitae voluptatum
+          aperiam corrupti, temporibus quaerat quo! Explicabo, quos neque esse
+          quasi a officiis!
+        </p>{" "}
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod odio
+          aspernatur reprehenderit vel asperiores ex cumque, vitae voluptatum
+          aperiam corrupti, temporibus quaerat quo! Explicabo, quos neque esse
+          quasi a officiis!
+        </p>{" "}
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod odio
+          aspernatur reprehenderit vel asperiores ex cumque, vitae voluptatum
+          aperiam corrupti, temporibus quaerat quo! Explicabo, quos neque esse
+          quasi a officiis!
+        </p>{" "}
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod odio
+          aspernatur reprehenderit vel asperiores ex cumque, vitae voluptatum
+          aperiam corrupti, temporibus quaerat quo! Explicabo, quos neque esse
+          quasi a officiis!
+        </p>{" "}
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod odio
+          aspernatur reprehenderit vel asperiores ex cumque, vitae voluptatum
+          aperiam corrupti, temporibus quaerat quo! Explicabo, quos neque esse
+          quasi a officiis!
+        </p>{" "}
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod odio
+          aspernatur reprehenderit vel asperiores ex cumque, vitae voluptatum
+          aperiam corrupti, temporibus quaerat quo! Explicabo, quos neque esse
+          quasi a officiis!
+        </p>{" "}
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod odio
+          aspernatur reprehenderit vel asperiores ex cumque, vitae voluptatum
+          aperiam corrupti, temporibus quaerat quo! Explicabo, quos neque esse
+          quasi a officiis!
+        </p>{" "}
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod odio
+          aspernatur reprehenderit vel asperiores ex cumque, vitae voluptatum
+          aperiam corrupti, temporibus quaerat quo! Explicabo, quos neque esse
+          quasi a officiis!
+        </p>
       </div>
     </div>
   );
