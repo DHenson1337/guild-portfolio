@@ -1,7 +1,6 @@
-// src/components/layout/Layout.jsx
+// src/components/layout/Navigation/Layout.jsx
 import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router";
-import GuildDesk from "../guild/GuildDesk";
 import "./Layout.css";
 
 function Layout() {
@@ -18,12 +17,10 @@ function Layout() {
 
   return (
     <div className="layout">
-      {/* Header Section - This stays largely the same */}
       <header>
         <h1>The Guild Reception Desk</h1>
         <nav className="nav-container">
           <div className="nav-links">
-            {/* Navigation Items */}
             <div className="nav-item">
               <Link to="/">About</Link>
               <div className="dropdown-content">
@@ -65,14 +62,10 @@ function Layout() {
         </nav>
       </header>
 
-      {/* Main Content Area */}
       <main className="main-content">
-        <GuildDesk>
-          <Outlet />
-        </GuildDesk>
+        <Outlet />
       </main>
 
-      {/* Footer Section */}
       <footer>
         <nav>
           <Link to="/resume">Resume</Link>
