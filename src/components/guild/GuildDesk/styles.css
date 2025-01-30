@@ -1,0 +1,83 @@
+/* src/components/guild/GuildDesk/styles.css */
+
+.guild-area {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 180px); /* Account for header and footer */
+  max-width: var(--desktop);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+/* Content Section - right side */
+.content-section {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+  height: 100%;
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  overflow-y: auto;
+}
+
+/* Desk Section */
+.desk {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  max-width: var(--desktop);
+  margin: 0 auto;
+}
+
+.desk-top {
+  height: 50px;
+  background: #2c1810; /* Darker, more fantasy-themed wood color */
+  border-top: 4px solid var(--accent-dark);
+  position: relative;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.desk-info {
+  flex: 1;
+  padding: 1.5rem;
+  background: linear-gradient(
+    to bottom,
+    #2c1810,
+    #1a0f0a
+  ); /* Darker wood gradient */
+  position: relative;
+  overflow: hidden;
+  color: var(--text);
+}
+/* Add a subtle grain texture to desk */
+.desk::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .guild-area {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .content-section {
+    margin-left: 200px; /* Give space for character on mobile */
+  }
+}
