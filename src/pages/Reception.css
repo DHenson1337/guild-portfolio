@@ -1,0 +1,33 @@
+/* Reception layout */
+.guild-container {
+  /* Fill the full viewport height (no scrolling overall for typical desktop) */
+  width: 100%;
+  height: 100vh;
+
+  /* If you want to center on ultrawide, you could do:
+       max-width: 1920px;
+       margin: 0 auto;
+    */
+
+  /* Two columns: left for Ribbon + desk, right for future content */
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  /* 450px for the left, auto for the right. Adjust to taste */
+
+  /* Hide any overflow to avoid a global scrollbar on large screens */
+  overflow: hidden;
+}
+
+.left-panel {
+  position: relative;
+  /* This is crucial so that absolutely-positioned elements
+       (like the desk or Ribbon) can anchor to this panel. */
+  overflow: hidden;
+}
+
+.right-panel {
+  /* This column is where you’ll put your scrollable content in the future */
+  overflow-y: auto;
+  padding: 1rem; /* Just a bit of spacing */
+  box-sizing: border-box;
+}

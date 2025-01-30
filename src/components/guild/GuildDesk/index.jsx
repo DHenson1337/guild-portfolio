@@ -2,19 +2,13 @@
 import { motion } from "framer-motion";
 import "./styles.css";
 
-function GuildDesk({ children, deskContent }) {
+function GuildDesk() {
   return (
-    <div className="guild-area">
-      {/* Main content area */}
-      <div className="content-section">{children}</div>
-
-      {/* Desk overlay */}
-      <div className="desk">
-        <div className="desk-top" />
-        <div className="desk-info">{deskContent}</div>
-      </div>
+    <div className="desk">
+      {/* Possibly a div for desk-top, desk-info, etc. */}
+      <div className="desk-top" />
+      <div className="desk-info">Some Desk Content</div>
     </div>
   );
 }
-
 export default GuildDesk;

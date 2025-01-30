@@ -20,14 +20,24 @@
 }
 
 .character-wrapper {
-  position: relative; /* Changed from absolute */
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transform: translateY(
-    50px
-  ); /* Adjust this value to fine-tune Ribbon's position */
+  position: absolute;
+  bottom: 0; /* Anchor to the bottom of the parent .left-panel */
+  transform: translateY(-50%);
+  /* This shifts the character upward by 50% of her height, 
+     letting her upper body show behind the desk. */
+
+  /* RESPONSIVE SIZING:
+     Scale the character with the viewport width but clamp it 
+     so she never becomes too small or too huge.
+  */
+  width: 18vw; /* Character scales with screen width */
+  min-width: 300px; /* but not smaller than 200px */
+  max-width: 380px; /* and not bigger than 380px */
+
+  z-index: 1;
+  /* If you want Ribbon IN FRONT of the desk’s top edge, 
+     raise her z-index higher than the desk’s, e.g. z-index: 3.
+     If you want her behind the desk, use a lower z-index than the desk. */
 }
 
 /* Character & Image */
@@ -49,7 +59,7 @@
 /* Dialogue Box */
 .dialogue-box {
   position: absolute;
-  top: -80px; /* Position above character */
+  top: -110px; /* Position above character */
   background-color: rgba(255, 255, 255, 0.95);
   color: var(--background-dark);
   border: 2px solid var(--accent-dark);
