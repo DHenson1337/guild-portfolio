@@ -72,3 +72,28 @@ body.dark-theme .desk-top {
     box-shadow: 0 0 15px var(--silver-accent);
   }
 }
+
+/* Tablet adjustments */
+@media screen and (max-width: 768px) {
+  .desk {
+    min-height: 300px; /* Reduce desk height */
+  }
+
+  .desk-info {
+    max-height: 40%; /* Reduce info area */
+  }
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 425px) {
+  .desk {
+    min-height: 250px;
+  }
+}
+
+/* Small mobile */
+@media screen and (max-width: 320px) {
+  .desk {
+    min-height: 200px;
+  }
+}

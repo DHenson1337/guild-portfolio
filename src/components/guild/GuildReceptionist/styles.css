@@ -7,6 +7,8 @@
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  /* Add max-height to prevent overflow */
+  max-height: calc(100vh - -100px); /* Subtract header height */
 }
 
 .character-container {
@@ -17,6 +19,9 @@
   justify-content: flex-start;
   align-items: flex-end;
   padding-left: 2rem;
+  /* Add boundaries */
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .character-wrapper {
@@ -25,6 +30,8 @@
   transform: translateY(-40%);
   z-index: 1;
   width: clamp(180px, 15vw, 380px);
+  /* Add maximum boundaries */
+  /* max-height: calc(100vh - 150px); */
 }
 
 /* Dark theme specific adjustments - increased specificity */
@@ -43,7 +50,7 @@ body.dark-theme .character-wrapper {
 .character-image {
   width: 100%;
   height: auto;
-  max-height: 600px;
+  max-height: 500px; /* Limit base height */
   object-fit: contain;
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
 }
@@ -80,4 +87,44 @@ body.dark-theme .character-wrapper {
   border-right: 15px solid transparent;
   border-top: 20px solid var(--accent-dark);
   filter: drop-shadow(0 0 5px var(--accent));
+}
+/* Base styles remain the same */
+
+/* Tablet adjustments */
+@media screen and (max-width: 768px) {
+  .character-wrapper {
+    width: 240px;
+    transform: translateY(-25%); /* Less upward shift */
+    bottom: 180px; /* Position relative to smaller desk */
+  }
+
+  .character-image {
+    max-height: 450px;
+  }
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 425px) {
+  .character-wrapper {
+    width: 200px;
+    transform: translateY(-20%);
+    bottom: 150px;
+  }
+
+  .character-image {
+    max-height: 400px;
+  }
+}
+
+/* Small mobile */
+@media screen and (max-width: 320px) {
+  .character-wrapper {
+    width: 180px;
+    transform: translateY(-15%);
+    bottom: 120px;
+  }
+
+  .character-image {
+    max-height: 350px;
+  }
 }

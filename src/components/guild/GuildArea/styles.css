@@ -1,0 +1,88 @@
+/* Guild Area layout */
+.guild-container {
+  display: grid;
+  grid-template-columns: 450px 1fr; /* Locks 450px width for left panel */
+  width: 100%;
+  max-width: 1920px; /* Prevents stretching on ultra-wide screens */
+  margin: 0 auto;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.left-panel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Control overall height */
+}
+
+@media (max-width: 1920px) {
+  /* Only affects screens below 1920px */
+  .character-wrapper {
+    width: clamp(400px, 20vw, 600px); /* Double the size */
+    transform: translateY(-50%);
+  }
+
+  .character-image {
+    max-width: 390px; /* Make sure image scales */
+  }
+}
+
+/* For Ultra-Wide Screens (2560x1080 and above) */
+@media (min-width: 2000px) {
+  .guild-container {
+    min-height: 750px; /* Increases height so Ribbon and desk stay visible */
+  }
+}
+
+/* For Smaller Screens (Laptops, etc.) */
+@media (max-width: 1440px) {
+  .guild-container {
+    min-height: 750px; /* Slightly lower min-height for laptops */
+  }
+}
+
+/* For Very Small Screens (Tablets) */
+@media (max-width: 1024px) {
+  .guild-container {
+    min-height: 500px; /* Ensures layout doesn't break */
+  }
+}
+
+/* Tablet and below */
+@media screen and (max-width: 768px) {
+  .guild-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-panel {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    order: 2; /* Move to bottom */
+  }
+
+  .right-panel {
+    width: 100%;
+    padding: 1rem;
+    order: 1; /* Move to top */
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 425px) {
+  .left-panel {
+    min-height: 450px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .left-panel {
+    min-height: 400px;
+  }
+}
