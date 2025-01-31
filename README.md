@@ -11,4 +11,4 @@ Currently, two official plugins are available:
 
 Read me i'll properly clean this up later:
 
-Receptionist Character -https://natsuyacharacterart.itch.io/ribbon
+QuestBoard - https://chronicles-of-eternia.com/forum/printthread.php?tid=2736

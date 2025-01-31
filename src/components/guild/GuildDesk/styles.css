@@ -1,35 +1,34 @@
 /* src/components/guild/GuildDesk/styles.css */
 
-/* Overall Desk Container */
+/* Main desk container */
 .desk {
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   bottom: 0;
-  height: clamp(190px, 15vh, 220px);
+  height: 550px; /* Base height */
   background: url("/assets/guildAssets/GuildDesk3.png") center/cover no-repeat;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
   z-index: 2;
   display: flex;
   flex-direction: column;
-  min-height: 400px;
 }
 
-/* Desk Top Surface */
+/* Top part of the desk with glowing border */
 .desk-top {
   height: 50px;
   position: relative;
   border-top: 3px solid var(--gold-accent);
-  animation: magical-pulse 3s infinite alternate ease-in-out;
+  animation: magical-pulse 20s infinite alternate ease-in-out;
 }
 
-/* Main Desk Body */
+/* Main content area of the desk */
 .desk-info {
   flex: 1;
   padding: 1.5rem;
-  background: rgba(20, 10, 5, 0.95); /* Made more opaque */
+  background: rgba(20, 10, 5, 0.95);
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
@@ -37,6 +36,7 @@
   bottom: 50px;
 }
 
+/* Desk content text styles */
 .desk-info p {
   color: #f0f0f0;
   font-size: 1rem;
@@ -51,7 +51,7 @@
   margin-bottom: 1rem;
 }
 
-/* Theme-Specific Styles */
+/* Theme-specific styles */
 body.dark-theme .desk-info {
   background: rgba(15, 5, 2, 0.95);
   border: 2px solid var(--silver-accent);
@@ -61,7 +61,7 @@ body.dark-theme .desk-top {
   border-top: 3px solid var(--silver-accent);
 }
 
-/* Animation */
+/* Border animation */
 @keyframes magical-pulse {
   0% {
     border-color: var(--gold-accent);
@@ -73,27 +73,48 @@ body.dark-theme .desk-top {
   }
 }
 
-/* Tablet adjustments */
+/* Responsive Breakpoints */
+
+/* Tablet */
 @media screen and (max-width: 768px) {
   .desk {
-    min-height: 300px; /* Reduce desk height */
+    height: 300px;
   }
 
   .desk-info {
-    max-height: 40%; /* Reduce info area */
+    max-height: 45%;
+    padding: 1rem;
   }
 }
 
-/* Mobile adjustments */
+/* Mobile L */
 @media screen and (max-width: 425px) {
   .desk {
-    min-height: 250px;
+    height: 250px;
+  }
+
+  .desk-info {
+    max-height: 40%;
+    padding: 0.8rem;
+  }
+
+  .desk-info p {
+    font-size: 0.9rem;
   }
 }
 
-/* Small mobile */
+/* Mobile S */
 @media screen and (max-width: 320px) {
   .desk {
-    min-height: 200px;
+    height: 200px;
+  }
+
+  .desk-info {
+    max-height: 35%;
+    padding: 0.6rem;
+  }
+
+  .desk-info p {
+    font-size: 0.85rem;
   }
 }

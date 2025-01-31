@@ -1,5 +1,6 @@
 /* src/components/guild/GuildReceptionist/styles.css */
 
+/* Main container for the receptionist section */
 .receptionist-section {
   position: relative;
   width: 100%;
@@ -7,39 +8,30 @@
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  /* Add max-height to prevent overflow */
-  max-height: calc(100vh - -100px); /* Subtract header height */
+  /* Adjust this value to move entire section up/down */
+  max-height: calc(100vh - 100px);
 }
 
+/* Container that holds the character - handles positioning */
 .character-container {
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Aligns character to the left */
   align-items: flex-end;
   padding-left: 2rem;
-  /* Add boundaries */
-  max-height: 100%;
-  overflow: hidden;
 }
 
+/* Wrapper for character and dialogue - handles animations and sizing */
 .character-wrapper {
-  position: absolute;
-  bottom: 220px;
-  transform: translateY(-40%);
+  position: relative;
+  bottom: -170px; /* Adjust this to move character up/down */
+  width: clamp(180px, 15vw, 380px); /* Responsive width */
   z-index: 1;
-  width: clamp(180px, 15vw, 380px);
-  /* Add maximum boundaries */
-  /* max-height: calc(100vh - 150px); */
 }
 
-/* Dark theme specific adjustments - increased specificity */
-body.dark-theme .character-wrapper {
-  transform: translateY(-30%) !important; /* Force override */
-  bottom: 80px !important; /* Force override */
-}
-
+/* Character image container */
 .character {
   width: 100%;
   position: relative;
@@ -47,17 +39,19 @@ body.dark-theme .character-wrapper {
   justify-content: center;
 }
 
+/* Character image styling */
 .character-image {
   width: 100%;
   height: auto;
-  max-height: 500px; /* Limit base height */
+  max-height: 500px;
   object-fit: contain;
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
 }
 
+/* Dialogue box styling */
 .dialogue-box {
   position: absolute;
-  top: -120px;
+  top: -120px; /* Distance from character */
   left: 15%;
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.95);
@@ -75,6 +69,7 @@ body.dark-theme .character-wrapper {
   text-align: center;
 }
 
+/* Dialogue box pointer */
 .dialogue-box::after {
   content: "";
   position: absolute;
@@ -88,14 +83,14 @@ body.dark-theme .character-wrapper {
   border-top: 20px solid var(--accent-dark);
   filter: drop-shadow(0 0 5px var(--accent));
 }
-/* Base styles remain the same */
 
-/* Tablet adjustments */
-@media screen and (max-width: 768px) {
+/* Responsive Breakpoints */
+
+/* Large screens */
+@media screen and (max-width: 1440px) {
   .character-wrapper {
     width: 240px;
-    transform: translateY(-25%); /* Less upward shift */
-    bottom: 180px; /* Position relative to smaller desk */
+    bottom: -180px;
   }
 
   .character-image {
@@ -103,28 +98,54 @@ body.dark-theme .character-wrapper {
   }
 }
 
-/* Mobile adjustments */
-@media screen and (max-width: 425px) {
+/* Tablet */
+@media screen and (max-width: 768px) {
   .character-wrapper {
-    width: 200px;
-    transform: translateY(-20%);
-    bottom: 150px;
+    width: 220px;
+    bottom: -160px;
   }
 
   .character-image {
     max-height: 400px;
   }
+
+  .dialogue-box {
+    width: 220px;
+    top: -100px;
+  }
 }
 
-/* Small mobile */
-@media screen and (max-width: 320px) {
+/* Mobile L */
+@media screen and (max-width: 425px) {
   .character-wrapper {
-    width: 180px;
-    transform: translateY(-15%);
-    bottom: 120px;
+    width: 200px;
+    bottom: 140px;
   }
 
   .character-image {
     max-height: 350px;
+  }
+
+  .dialogue-box {
+    width: 200px;
+    top: -90px;
+  }
+}
+
+/* Mobile S */
+@media screen and (max-width: 320px) {
+  .character-wrapper {
+    width: 180px;
+    bottom: 120px;
+  }
+
+  .character-image {
+    max-height: 300px;
+  }
+
+  .dialogue-box {
+    width: 180px;
+    top: -80px;
+    font-size: 0.8rem;
   }
 }
