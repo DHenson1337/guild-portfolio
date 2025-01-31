@@ -1,4 +1,4 @@
-/* Styles for the Guild Desk */
+/* src/components/guild/GuildDesk/styles.css */
 
 /* Overall Desk Container */
 .desk {
@@ -6,21 +6,62 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: clamp(190px, 15vh, 220px); /* Keeps the height consistent */
-  background: url("/assets/guildAssets/GuildDesk3.png") center/cover no-repeat; /* Scales the image proportionally */
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3); /* Adds shadow for depth */
-  z-index: 2; /* Ensures it's above background layers */
+  height: clamp(190px, 15vh, 220px);
+  background: url("/assets/guildAssets/GuildDesk3.png") center/cover no-repeat;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
 }
 
-/* Desk Top Surface with Magical Line */
+/* Desk Top Surface */
 .desk-top {
-  height: 50px; /* Top part of the desk for content alignment */
+  height: 50px;
   position: relative;
-  border-top: 3px solid var(--gold-accent); /* Gold line for light theme */
-  animation: magical-pulse 3s infinite alternate ease-in-out; /* Pulse effect */
+  border-top: 3px solid var(--gold-accent);
+  animation: magical-pulse 3s infinite alternate ease-in-out;
 }
 
-/* Magical Pulse Animation */
+/* Main Desk Body */
+.desk-info {
+  flex: 1;
+  padding: 1.5rem;
+  background: rgba(20, 10, 5, 0.95); /* Made more opaque */
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  max-height: 50%;
+  bottom: 50px;
+}
+
+.desk-info p {
+  color: #f0f0f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.desk-info h2,
+.desk-info h3 {
+  color: #ffffff;
+  font-family: "MedievalSharp", cursive;
+  margin-bottom: 1rem;
+}
+
+/* Theme-Specific Styles */
+body.dark-theme .desk-info {
+  background: rgba(15, 5, 2, 0.95);
+  border: 2px solid var(--silver-accent);
+}
+
+body.dark-theme .desk-top {
+  border-top: 3px solid var(--silver-accent);
+}
+
+/* Animation */
 @keyframes magical-pulse {
   0% {
     border-color: var(--gold-accent);
@@ -29,115 +70,5 @@
   100% {
     border-color: var(--silver-accent);
     box-shadow: 0 0 15px var(--silver-accent);
-  }
-}
-
-/* Main Desk Body */
-.desk-info {
-  flex: 1;
-  padding: 1.5rem; /* Ensures good spacing for readability */
-  background: rgba(
-    20,
-    10,
-    5,
-    0.85
-  ); /* Semi-transparent fantasy-themed background */
-  position: relative;
-  overflow: hidden;
-  color: var(--desk-text); /* Adjusted dynamically per theme */
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Adds a subtle inner shadow */
-  border-radius: 12px; /* Slightly curved edges for a softer feel */
-  border: 2px solid var(--gold-accent); /* Gold decorative border */
-}
-
-/* Fantasy Glow Effect */
-.desk-info::before,
-.desk-info::after {
-  content: "";
-  position: absolute;
-  width: 80%;
-  height: 10px;
-  left: 10%;
-  background: linear-gradient(to right, rgba(255, 215, 0, 0.7), transparent);
-  border-radius: 5px;
-  opacity: 0.6;
-}
-
-.desk-info::before {
-  top: -5px;
-}
-
-.desk-info::after {
-  bottom: -5px;
-}
-
-/* Adjusting text readability */
-.desk-info h2 {
-  color: var(--accent-light); /* Title color adjusted for readability */
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.desk-info p {
-  color: var(--text-secondary); /* Subtle yet readable text color */
-  line-height: 1.5;
-  font-size: 1rem;
-}
-
-/* Text Content Styling */
-.desk-content {
-  position: relative;
-  z-index: 1; /* Keeps text above overlays */
-  font-family: "Cinzel", serif; /* Gives a medieval/fantasy feel */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Improved shadow for readability */
-  line-height: 1.5;
-  color: var(--desk-text); /* Matches the updated text color */
-}
-
-/* Theme-Specific Styles */
-
-/* 🔥 Dark Mode Enhancements */
-body.dark-theme .desk-info {
-  background: rgba(15, 5, 2, 0.85); /* Darker wood effect for night mode */
-  border: 2px solid var(--silver-accent); /* Changes to silver borders */
-  color: var(--text-light); /* Adjusts text for dark mode */
-}
-
-body.dark-theme .desk-top {
-  border-top: 3px solid var(--silver-accent); /* Silver line for dark mode */
-}
-
-/* 🌞 Light Mode Enhancements */
-body:not(.dark-theme) .desk-info {
-  background: rgba(250, 240, 220, 0.9); /* Light fantasy parchment */
-  border: 2px solid var(--gold-accent);
-  color: var(--text-dark); /* Adjusts text for light mode */
-}
-
-body:not(.dark-theme) .desk-top {
-  border-top: 3px solid var(--gold-accent); /* Gold line for light mode */
-}
-
-/* Responsive Adjustments */
-
-/* For Ultra-Wide Screens */
-@media (max-width: 1920px) {
-  .desk {
-    height: clamp(370px, 20vh, 400px); /* Adjusts desk height for ultra-wide */
-  }
-
-  .desk-top {
-    height: 60px; /* Adjusts the top for proportional scaling */
-  }
-}
-
-/* For Smaller Screens */
-@media (max-width: 768px) {
-  .desk {
-    height: clamp(280px, 15vh, 320px); /* Shrinks desk for smaller screens */
-  }
-
-  .desk-top {
-    height: 40px;
   }
 }

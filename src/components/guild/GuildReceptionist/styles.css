@@ -21,13 +21,18 @@
 
 .character-wrapper {
   position: absolute;
-  bottom: 200px; /* Increased to raise character higher */
-  transform: translateY(-40%); /* Adjusted to move character up */
+  bottom: 220px;
+  transform: translateY(-40%);
   z-index: 1;
   width: clamp(180px, 15vw, 380px);
 }
 
-/* Character & Image */
+/* Dark theme specific adjustments - increased specificity */
+body.dark-theme .character-wrapper {
+  transform: translateY(-30%) !important; /* Force override */
+  bottom: 80px !important; /* Force override */
+}
+
 .character {
   width: 100%;
   position: relative;
@@ -38,15 +43,16 @@
 .character-image {
   width: 100%;
   height: auto;
-  max-height: 600px; /* Added max-height to control image size */
+  max-height: 600px;
   object-fit: contain;
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
 }
 
-/* Dialogue Box */
 .dialogue-box {
   position: absolute;
-  top: -110px;
+  top: -120px;
+  left: 15%;
+  transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.95);
   color: var(--background-dark);
   border: 2px solid var(--accent-dark);
@@ -74,34 +80,4 @@
   border-right: 15px solid transparent;
   border-top: 20px solid var(--accent-dark);
   filter: drop-shadow(0 0 5px var(--accent));
-}
-
-/* Responsive adjustments */
-@media (max-width: 1920px) {
-  .character-wrapper {
-    bottom: 250px; /* Further adjusted for larger screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .character-wrapper {
-    bottom: 220px;
-    width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .character-wrapper {
-    bottom: 180px;
-    width: 250px;
-  }
-}
-
-/* Ultra-wide screen adjustments */
-@media (min-width: 1800px) {
-  .character-wrapper {
-    width: 20vw;
-    max-width: 500px;
-    bottom: 300px; /* Even higher for ultra-wide screens */
-  }
 }
