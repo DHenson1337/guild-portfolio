@@ -13,6 +13,29 @@
   --text-dark: #ffffff; /* Pure white for maximum contrast */
   --accent-dark: #60a5fa; /* Lighter blue for accents */
 
+  /* New wood theme variables */
+  /* Light theme wood */
+  --wood-primary-light: #8b4513; /* Saddle brown */
+  --wood-secondary-light: #deb887; /* Burlywood */
+  --wood-accent-light: #a0522d; /* Sienna */
+  --wood-grain-light: rgba(139, 69, 19, 0.1); /* Subtle grain for light theme */
+
+  /* Dark theme wood */
+  --wood-primary-dark: #3e2723; /* Dark brown */
+  --wood-secondary-dark: #5d4037; /* Medium brown */
+  --wood-accent-dark: #4e342e; /* Rich dark brown */
+  --wood-grain-dark: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* Subtle grain for dark theme */
+
+  /* Wood effects */
+  --wood-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+  --wood-inner-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  --wood-border-glow: 0 0 10px rgba(255, 215, 0, 0.2); /* Subtle golden glow */
+
   /* Navigation highlight colors */
   --nav-highlight-light: rgba(255, 255, 255, 0.1);
   --nav-highlight-dark: rgba(255, 255, 255, 0.2);
@@ -28,6 +51,12 @@
 
   /* Border radius */
   --border-radius: 0.5rem;
+
+  /* More text colors */
+  --desk-text-dark: #f8f1e7; /* Soft parchment color for readability */
+  --desk-text-light: #3e2723; /* Rich dark brown for light mode */
+  --gold-accent: #ffd700; /* Gold accent for light theme */
+  --silver-accent: #c0c0c0; /* Silver accent for dark theme */
 }
 
 /* Navigation link styles */

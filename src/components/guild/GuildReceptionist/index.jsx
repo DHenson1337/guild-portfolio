@@ -1,42 +1,45 @@
 // src/components/guild/GuildReceptionist/index.jsx
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useGuild, EXPRESSIONS } from "../../../context/GuildContext";
+import { useGuild } from "../../../context/GuildContext";
 import "./styles.css";
 
-// Import character expressions
-import Ribbon1 from "../../../assets/images/ribbon/Ribbon1.png"; // Talking
-import Ribbon2 from "../../../assets/images/ribbon/Ribbon2.png"; // Neutral
-import Ribbon3 from "../../../assets/images/ribbon/Ribbon3.png"; // Closed
-import Ribbon4 from "../../../assets/images/ribbon/Ribbon4.png"; // Happy
-
-const expressionMap = {
-  [EXPRESSIONS.TALKING]: Ribbon1,
-  [EXPRESSIONS.NEUTRAL]: Ribbon2,
-  [EXPRESSIONS.CLOSED]: Ribbon3,
-  [EXPRESSIONS.HAPPY]: Ribbon4,
-};
+// Import new receptionist images
+import Receptionist1 from "../../../assets/images/receptionist/Receptionist1.png"; // Dark theme
+import Receptionist2 from "../../../assets/images/receptionist/Receptionist2.png"; // Light theme
 
 function GuildReceptionist() {
-  const {
-    dialogue,
-    currentExpression,
-    isInteractionEnabled,
-    handleCharacterClick,
-    blink,
-  } = useGuild();
+  const { dialogue, isInteractionEnabled, handleCharacterClick } = useGuild();
+  const [currentReceptionist, setCurrentReceptionist] = useState(Receptionist1);
 
-  // Handle natural blinking
+  // Update receptionist based on theme
   useEffect(() => {
-    const blinkInterval = setInterval(() => {
-      if (Math.random() < 0.2) {
-        // 20% chance to blink every interval
-        blink();
-      }
-    }, 3000);
+    const updateReceptionist = () => {
+      const isDarkTheme = document.body.classList.contains("dark-theme");
+      setCurrentReceptionist(isDarkTheme ? Receptionist1 : Receptionist2);
+    };
 
-    return () => clearInterval(blinkInterval);
-  }, [blink]);
+    // Initial setup
+    updateReceptionist();
+
+    // Create observer to watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          updateReceptionist();
+        }
+      });
+    });
+
+    // Start observing
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    // Cleanup
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="receptionist-section">
@@ -56,13 +59,13 @@ function GuildReceptionist() {
             className="dialogue-box"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            key={dialogue} // Force animation restart on dialogue change
+            key={dialogue}
             transition={{ duration: 0.3 }}
           >
             {dialogue}
           </motion.div>
 
-          {/* Character */}
+          {/* Receptionist */}
           <div
             className="character"
             onClick={handleCharacterClick}
@@ -71,7 +74,7 @@ function GuildReceptionist() {
             }}
           >
             <motion.img
-              src={expressionMap[currentExpression]}
+              src={currentReceptionist}
               alt="Guild Receptionist"
               className="character-image"
               initial={{ opacity: 0 }}

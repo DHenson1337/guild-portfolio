@@ -6,7 +6,7 @@
   height: 100%;
   display: flex;
   align-items: flex-end;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
 }
 
 .character-container {
@@ -21,13 +21,10 @@
 
 .character-wrapper {
   position: absolute;
-  bottom: 0;
-  transform: translateY(-50%);
-  z-index: 1; /* if you want her in front of desk's top edge */
-
-  /* Instead of purely vw, clamp it so it won’t be too big or too small */
+  bottom: 200px; /* Increased to raise character higher */
+  transform: translateY(-40%); /* Adjusted to move character up */
+  z-index: 1;
   width: clamp(180px, 15vw, 380px);
-  /* 15vw is the “ideal,” 180px is the min, 380px is the max */
 }
 
 /* Character & Image */
@@ -41,7 +38,7 @@
 .character-image {
   width: 100%;
   height: auto;
-  max-width: 300px;
+  max-height: 600px; /* Added max-height to control image size */
   object-fit: contain;
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
 }
@@ -49,7 +46,7 @@
 /* Dialogue Box */
 .dialogue-box {
   position: absolute;
-  top: -110px; /* Position above character */
+  top: -110px;
   background-color: rgba(255, 255, 255, 0.95);
   color: var(--background-dark);
   border: 2px solid var(--accent-dark);
@@ -79,42 +76,32 @@
   filter: drop-shadow(0 0 5px var(--accent));
 }
 
-/* Responsive Design */
+/* Responsive adjustments */
+@media (max-width: 1920px) {
+  .character-wrapper {
+    bottom: 250px; /* Further adjusted for larger screens */
+  }
+}
+
 @media (max-width: 768px) {
   .character-wrapper {
+    bottom: 220px;
     width: 300px;
-    bottom: 180px; /* Adjust for smaller screens */
-  }
-
-  .dialogue-box {
-    width: 220px;
   }
 }
 
 @media (max-width: 480px) {
   .character-wrapper {
+    bottom: 180px;
     width: 250px;
-    bottom: 150px; /* Adjust for mobile */
-  }
-
-  .dialogue-box {
-    width: 180px;
   }
 }
 
-/* If screen is wider than 1800px, 
-   you might allow Ribbon to be a bit bigger. */
+/* Ultra-wide screen adjustments */
 @media (min-width: 1800px) {
   .character-wrapper {
-    width: 20vw; /* Slightly bigger for large displays */
+    width: 20vw;
     max-width: 500px;
-  }
-}
-
-/* If screen is narrower than 800px, 
-     maybe reduce her bottom offset or transform so we see more above the desk */
-@media (max-width: 800px) {
-  .character-wrapper {
-    transform: translateY(-40%); /* shift her a little less upward */
+    bottom: 300px; /* Even higher for ultra-wide screens */
   }
 }
