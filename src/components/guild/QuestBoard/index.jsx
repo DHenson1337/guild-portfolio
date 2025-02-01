@@ -54,6 +54,28 @@ const QuestBoard = ({ onQuestSelect }) => {
         live: "https://...",
       },
     },
+    {
+      id: 4,
+      title: "Project 1",
+      description: "A description of project 1",
+      technologies: ["React", "Node.js"],
+      image: "/path/to/image1.jpg",
+      links: {
+        github: "https://github.com/...",
+        live: "https://...",
+      },
+    },
+    {
+      id: 4,
+      title: "Project 1",
+      description: "A description of project 1",
+      technologies: ["React", "Node.js"],
+      image: "/path/to/image1.jpg",
+      links: {
+        github: "https://github.com/...",
+        live: "https://...",
+      },
+    },
     // Add more sample quests...
   ];
 

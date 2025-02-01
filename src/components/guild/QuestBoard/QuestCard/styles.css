@@ -55,6 +55,35 @@
   font-size: 1.2rem;
 }
 
+/* Github and live demo links */
+.quest-links {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.quest-card:hover .quest-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quest-link {
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+
+.quest-link:hover {
+  color: var(--accent);
+}
+
 /* Selected state styles */
 .quest-card.selected {
   box-shadow: 0 0 15px var(--accent);
