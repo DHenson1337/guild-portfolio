@@ -1,27 +1,42 @@
-import React from "react";
+// src/pages/QuestBoard.jsx
+import { useState } from "react";
 import GuildArea from "../components/guild/GuildArea";
+import QuestBoard from "../components/guild/QuestBoard";
 
-function QuestBoard() {
-  const deskContent = (
+function QuestBoardPage() {
+  const [selectedQuestInfo, setSelectedQuestInfo] = useState(null);
+
+  const deskContent = selectedQuestInfo ? (
     <div>
-      <h2>Welcome to the Guild</h2>
-      <p>
-        I'm here to help guide you through our facilities. Feel free to explore
-        our Quest Board for projects, Library for skills, or Bounty Hall for
-        experience records.
-      </p>
+      <h2>{selectedQuestInfo.title}</h2>
+      <img
+        src={selectedQuestInfo.image}
+        alt={selectedQuestInfo.title}
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+      {selectedQuestInfo.liveLink && (
+        <a
+          href={selectedQuestInfo.liveLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="live-demo-link"
+        >
+          View Live Demo
+        </a>
+      )}
+    </div>
+  ) : (
+    <div>
+      <h2>Welcome to the Quest Board</h2>
+      <p>Select a quest to view more details about the project.</p>
     </div>
   );
 
   return (
     <GuildArea deskContent={deskContent}>
-      {/* Main content area */}
-      <div className="reception-content">
-        <h2>Main Content</h2>
-        <p>Example content...</p>
-      </div>
+      <QuestBoard onQuestSelect={setSelectedQuestInfo} />
     </GuildArea>
   );
 }
 
-export default QuestBoard;
+export default QuestBoardPage;

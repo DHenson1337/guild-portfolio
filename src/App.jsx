@@ -6,6 +6,7 @@ import QuestBoard from "./pages/QuestBoard";
 import Library from "./pages/Library";
 import BountyHall from "./pages/BountyHall";
 import { GuildProvider } from "./context/GuildContext";
+import QuestBoardPage from "./pages/QuestBoard";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Reception />} />
-          <Route path="/quests" element={<QuestBoard />} />
+          <Route path="/quests" element={<QuestBoardPage />} />
           <Route path="/library" element={<Library />} />
           <Route path="/bounties" element={<BountyHall />} />
         </Route>
