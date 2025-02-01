@@ -1,15 +1,16 @@
 /* src/styles/breakpoints.css */
 :root {
-  /* Breakpoint values that we'll use throughout the site */
+  /* Breakpoint values use throughout the site */
   --mobile: 320px;
   --tablet: 768px;
   --desktop: 1024px;
   --large-desktop: 1440px;
 }
 
-/* We can create reusable classes for responsive design */
+/* reusable classes for responsive design */
 .responsive-container {
   width: 100%;
+  /* height: 100%; */
   margin: 0 auto;
   padding: 0 1rem;
 }

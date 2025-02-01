@@ -26,6 +26,7 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+  transform: translateX(-20px); /* moves to the left */
   /* Add some space for the ornate border in the parchment */
   margin: 20px;
   box-sizing: border-box;

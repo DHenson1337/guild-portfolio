@@ -8,25 +8,25 @@ const QuestBoard = ({ onQuestSelect }) => {
   const { updateDialogue } = useGuild();
   const [selectedQuest, setSelectedQuest] = useState(null);
 
-  // Sample quest data - this would come from your actual data source
+  // Sample quest data
   const quests = [
     {
       id: 1,
       title: "Project 1",
-      description: "A description of project 1",
+      description: "A  description of project  ",
       technologies: ["React", "Node.js"],
-      image: "/path/to/image1.jpg",
       links: {
         github: "https://github.com/...",
         live: "https://...",
       },
+      image: "/assets/images/projects/p1.png",
     },
     {
       id: 2,
       title: "Project 1",
       description: "A description of project 1",
       technologies: ["React", "Node.js"],
-      image: "/path/to/image1.jpg",
+      image: "/assets/images/projects/p2.png",
       links: {
         github: "https://github.com/...",
         live: "https://...",
@@ -37,7 +37,7 @@ const QuestBoard = ({ onQuestSelect }) => {
       title: "Project 1",
       description: "A description of project 1",
       technologies: ["React", "Node.js"],
-      image: "/path/to/image1.jpg",
+      image: "/assets/images/projects/p3.png",
       links: {
         github: "https://github.com/...",
         live: "https://...",
@@ -68,8 +68,8 @@ const QuestBoard = ({ onQuestSelect }) => {
     // Send the quest info to the parent component
     onQuestSelect({
       title: quest.title,
-      image: quest.image,
       liveLink: quest.links?.live,
+      image: quest.image,
     });
   };
 

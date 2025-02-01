@@ -18,7 +18,7 @@
 .desk-top {
   height: 50px;
   position: relative;
-  border-top: 3px solid var(--gold-accent);
+  border-top: 3px solid var(--secondary);
   animation: magical-pulse 20s infinite alternate ease-in-out;
 }
 
@@ -64,12 +64,12 @@ body.dark-theme .desk-top {
 /* Border animation */
 @keyframes magical-pulse {
   0% {
-    border-color: var(--gold-accent);
-    box-shadow: 0 0 5px var(--gold-accent);
+    border-color: var(----secondary);
+    box-shadow: 0 0 5px var(--accent);
   }
   100% {
-    border-color: var(--silver-accent);
-    box-shadow: 0 0 15px var(--silver-accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
   }
 }
 

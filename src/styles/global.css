@@ -87,3 +87,70 @@ button {
 button:hover {
   background: var(--accent);
 }
+
+/* Desk scrollbars */
+.desk-info::-webkit-scrollbar,
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.desk-info::-webkit-scrollbar-track,
+.main-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.desk-info::-webkit-scrollbar-thumb,
+.main-content::-webkit-scrollbar-thumb {
+  background: var(--wood-primary-dark);
+  border-radius: 4px;
+}
+
+.desk-info::-webkit-scrollbar-thumb:hover,
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: var(--wood-primary-light);
+}
+
+/* Animation for desk content updates */
+@keyframes shimmer-border {
+  0% {
+    border-color: var(--secondary);
+    box-shadow: 0 0 10px var(--secondary);
+  }
+  50% {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+  }
+  100% {
+    border-color: var(--secondary);
+    box-shadow: 0 0 10px var(--secondary);
+  }
+}
+
+.quest-image-update {
+  animation: shimmer 1s ease-in-out;
+}
+
+/* Website Scroll Bar */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Use theme colors for scrollbar */
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

@@ -1,8 +1,18 @@
 // src/pages/Reception.jsx
-import React from "react";
+import { useEffect } from "react";
 import GuildArea from "../components/guild/GuildArea";
+import { useGuild } from "../context/GuildContext";
 
 function Reception() {
+  const { updateDialogue } = useGuild();
+
+  useEffect(() => {
+    // Update dialogue when component mounts
+    updateDialogue(
+      "Welcome to the Reception! Choose any quest and I'll share the details."
+    );
+  }, []); // Empty dependency array means this runs once on mount
+
   const deskContent = (
     <div>
       <h2>Welcome to the Guild</h2>
