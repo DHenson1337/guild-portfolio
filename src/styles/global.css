@@ -45,6 +45,22 @@ html,
 body {
   height: 100%;
   font-family: system-ui, -apple-system, sans-serif; /* Default font for regular text */
+  transition: background-color 0.5s ease, color 0.5s ease; /*For theme transition */
+}
+
+/* Add transition properties to elements that change with theme */
+.quest-card,
+.quest-title,
+.desk-info,
+.nav-links a,
+button,
+.dialogue-box {
+  transition: all 0.5s ease;
+}
+
+/* Smooth transition for background images */
+[class*="background-"] {
+  transition: background-image 0.5s ease;
 }
 
 h1,

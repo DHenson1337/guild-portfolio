@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useGuild } from "../../../context/GuildContext";
 import QuestCard from "./QuestCard";
+import DustParticles from "../../shared/DustParticles";
 import "./styles.css";
 
 const QuestBoard = ({ onQuestSelect }) => {
@@ -65,17 +66,7 @@ const QuestBoard = ({ onQuestSelect }) => {
         live: "https://...",
       },
     },
-    {
-      id: 4,
-      title: "Project 1",
-      description: "A description of project 1",
-      technologies: ["React", "Node.js"],
-      image: "/path/to/image1.jpg",
-      links: {
-        github: "https://github.com/...",
-        live: "https://...",
-      },
-    },
+
     // Add more sample quests...
   ];
 
@@ -97,6 +88,7 @@ const QuestBoard = ({ onQuestSelect }) => {
 
   return (
     <div className="quest-board-container">
+      <DustParticles />
       <div className="quest-board">
         <div className="quest-grid">
           {quests.map((quest) => (
