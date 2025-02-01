@@ -1,29 +1,30 @@
+/* theme.css - Theme configuration and color variables */
+
 :root {
-  /* Base colors for light theme */
-  --primary-light: #1e3a8a; /* Royal blue */
-  --secondary-light: #c0a080; /* Wooden brown */
-  --background-light: #f5f5dc; /* Parchment */
-  --text-light: #2c3e50; /* Dark slate */
-  --accent-light: #ffd700; /* Gold */
+  /* Light Theme Colors */
+  --primary-light: #1e3a8a; /* Royal blue - Primary actions and highlights */
+  --secondary-light: #c0a080; /* Wooden brown - Secondary elements and accents */
+  --background-light: #f5f5dc; /* Parchment - Main background color */
+  --text-light: #2c3e50; /* Dark slate - Primary text color */
+  --accent-light: #ffd700; /* Gold - Special highlights and interactions */
 
-  /* Base colors for dark theme */
-  --primary-dark: #0ea5e9; /* Glowing blue */
-  --secondary-dark: #132f8b; /* A Guild Blue */
-  --background-dark: #1a1a1a; /* Deep black */
-  --text-dark: #ffffff; /* Pure white for maximum contrast */
-  --accent-dark: #60a5fa; /* Lighter blue for accents */
+  /* Dark Theme Colors */
+  --primary-dark: #0ea5e9; /* Glowing blue - Primary actions in dark mode */
+  --secondary-dark: #132f8b; /* Guild Blue - Secondary elements in dark mode */
+  --background-dark: #1a1a1a; /* Deep black - Dark mode background */
+  --text-dark: #ffffff; /* Pure white - Dark mode text for contrast */
+  --accent-dark: #60a5fa; /* Lighter blue - Dark mode accents */
 
-  /* New wood theme variables */
-  /* Light theme wood */
-  --wood-primary-light: #8b4513; /* Saddle brown */
-  --wood-secondary-light: #deb887; /* Burlywood */
-  --wood-accent-light: #a0522d; /* Sienna */
-  --wood-grain-light: rgba(139, 69, 19, 0.1); /* Subtle grain for light theme */
+  /* Wood Theme - Light */
+  --wood-primary-light: #8b4513; /* Saddle brown - Primary wood color */
+  --wood-secondary-light: #deb887; /* Burlywood - Secondary wood details */
+  --wood-accent-light: #a0522d; /* Sienna - Wood accents */
+  --wood-grain-light: rgba(139, 69, 19, 0.1); /* Subtle wood grain texture */
 
-  /* Dark theme wood */
-  --wood-primary-dark: #3e2723; /* Dark brown */
-  --wood-secondary-dark: #5d4037; /* Medium brown */
-  --wood-accent-dark: #4e342e; /* Rich dark brown */
+  /* Wood Theme - Dark */
+  --wood-primary-dark: #3e2723; /* Dark brown - Primary wood in dark mode */
+  --wood-secondary-dark: #5d4037; /* Medium brown - Secondary wood details */
+  --wood-accent-dark: #4e342e; /* Rich dark brown - Wood accents */
   --wood-grain-dark: rgba(
     255,
     255,
@@ -31,46 +32,60 @@
     0.05
   ); /* Subtle grain for dark theme */
 
-  /* Wood effects */
+  /* Effect Variables */
   --wood-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
   --wood-inner-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
-  --wood-border-glow: 0 0 10px rgba(255, 215, 0, 0.2); /* Subtle golden glow */
+  --wood-border-glow: 0 0 10px rgba(255, 215, 0, 0.2);
 
-  /* Navigation highlight colors */
+  /* Navigation Effects */
   --nav-highlight-light: rgba(255, 255, 255, 0.1);
   --nav-highlight-dark: rgba(255, 255, 255, 0.2);
 
-  /* Functional colors */
+  /* Utility Variables */
   --shadow-color: rgba(0, 0, 0, 0.2);
   --magical-glow: 0 0 10px var(--primary-dark);
 
-  /* Spacing */
+  /* Spacing System */
   --spacing-small: 0.5rem;
   --spacing-medium: 1rem;
   --spacing-large: 2rem;
 
-  /* Border radius */
+  /* Border Radius */
   --border-radius: 0.5rem;
 
-  /* More text colors */
-  --desk-text-dark: #f8f1e7; /* Soft parchment color for readability */
+  /* Additional Text Colors */
+  --desk-text-dark: #f8f1e7; /* Soft parchment for readability */
   --desk-text-light: #3e2723; /* Rich dark brown for light mode */
-  --gold-accent: #ffd700; /* Gold accent for light theme */
-  --silver-accent: #c0c0c0; /* Silver accent for dark theme */
+  --gold-accent: #ffd700; /* Gold accent */
+  --silver-accent: #c0c0c0; /* Silver accent */
 }
 
-/* Navigation link styles */
+/* Base Theme Transitions */
+body {
+  /* Enable smooth transitions for theme changes */
+  transition: all 0.5s ease;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+/* Apply transitions to all themed elements */
+body * {
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Navigation Link Styling */
 .nav-links a {
-  color: var(--text-dark); /* Always white text in header */
+  color: var(--text);
   position: relative;
   z-index: 1;
 }
 
 .nav-links a:hover {
-  color: var(--text-dark); /* Maintain white text on hover */
+  color: var(--accent);
 }
 
-/* Create a subtle highlight effect that doesn't interfere with text */
+/* Navigation Hover Effect */
 .nav-links a::before {
   content: "";
   position: absolute;
@@ -78,7 +93,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--accent-dark);
+  background-color: var(--accent);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -87,7 +102,7 @@
   transform: scaleX(1);
 }
 
-/* Default to light theme */
+/* Light Theme  */
 body {
   --primary: var(--primary-light);
   --secondary: var(--secondary-light);
@@ -96,7 +111,7 @@ body {
   --accent: var(--accent-light);
 }
 
-/* Dark theme class */
+/* Dark Theme (Default)*/
 body.dark-theme {
   --primary: var(--primary-dark);
   --secondary: var(--secondary-dark);

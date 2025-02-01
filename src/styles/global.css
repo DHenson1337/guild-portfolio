@@ -1,14 +1,17 @@
-/* Google Font */
+/* global.css - Global styles and utilities */
+
+/* Import Google Font */
 @import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
 
+/* Import Breakpoints */
 @import "./breakpoints.css";
 
-/* Responsive font sizing */
+/* Root Font Sizing */
 :root {
-  /* Base font size for mobile */
-  font-size: 16px;
+  font-size: 16px; /* Base size for mobile */
 }
 
+/* Responsive Font Sizing */
 @media (--tablet-and-up) {
   :root {
     font-size: 18px;
@@ -21,7 +24,7 @@
   }
 }
 
-/* Responsive container */
+/* Container Sizing */
 .container {
   width: 100%;
   margin: 0 auto;
@@ -40,45 +43,60 @@
   }
 }
 
-/* global styles */
+/* Base HTML Styling */
 html,
 body {
   height: 100%;
-  font-family: system-ui, -apple-system, sans-serif; /* Default font for regular text */
-  transition: background-color 0.5s ease, color 0.5s ease; /*For theme transition */
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Add transition properties to elements that change with theme */
-.quest-card,
-.quest-title,
-.desk-info,
-.nav-links a,
-button,
-.dialogue-box {
-  transition: all 0.5s ease;
-}
-
-/* Smooth transition for background images */
-[class*="background-"] {
-  transition: background-image 0.5s ease;
-}
-
+/* Typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "MedievalSharp", cursive; /* Fantasy font for headings */
+  font-family: "MedievalSharp", cursive;
 }
 
+/* Root Container */
 #root {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* Base link styles */
+/* Theme Transition Elements */
+.quest-card,
+.quest-title,
+.desk-info,
+.nav-links a,
+button,
+.dialogue-box,
+.main-content,
+.layout,
+header,
+footer {
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Interactive Element Transitions */
+a,
+button {
+  transition: all 0.3s ease;
+}
+
+/* Background Image Transitions */
+[class*="background-"],
+.quest-board,
+.desk {
+  transition: background-image 0.5s ease, background-color 0.5s ease,
+    border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Link Styling */
 a {
   color: var(--primary);
   text-decoration: none;
@@ -89,7 +107,7 @@ a:hover {
   color: var(--accent);
 }
 
-/* Base button styles */
+/* Button Styling */
 button {
   cursor: pointer;
   border: none;
@@ -97,14 +115,13 @@ button {
   background: var(--primary);
   color: var(--text);
   border-radius: var(--border-radius);
-  transition: all 0.3s ease;
 }
 
 button:hover {
   background: var(--accent);
 }
 
-/* Desk scrollbars */
+/* Desk Info Scrollbar */
 .desk-info::-webkit-scrollbar,
 .main-content::-webkit-scrollbar {
   width: 8px;
@@ -127,7 +144,30 @@ button:hover {
   background: var(--wood-primary-light);
 }
 
-/* Animation for desk content updates */
+/* Website Scrollbar */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Animation Keyframes */
 @keyframes shimmer-border {
   0% {
     border-color: var(--secondary);
@@ -145,28 +185,4 @@ button:hover {
 
 .quest-image-update {
   animation: shimmer 1s ease-in-out;
-}
-
-/* Website Scroll Bar */
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  width: 8px;
-}
-
-html::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-}
-
-/* Use theme colors for scrollbar */
-html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
-  background: var(--secondary);
-  border-radius: 4px;
-}
-
-html::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
 }
