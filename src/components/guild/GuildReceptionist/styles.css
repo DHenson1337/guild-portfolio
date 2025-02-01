@@ -23,12 +23,18 @@
   padding-left: 2rem;
 }
 
-/* Wrapper for character and dialogue - handles animations and sizing */
+/* Default position (for dark theme/receptionist1) */
 .character-wrapper {
   position: relative;
-  bottom: -170px; /* Adjust this to move character up/down */
-  width: clamp(180px, 15vw, 380px); /* Responsive width */
+  bottom: -170px;
+  width: clamp(180px, 15vw, 380px);
   z-index: 1;
+}
+
+/* Adjusted position for light theme/receptionist2 */
+body:not(.dark-theme) .character-wrapper {
+  bottom: -250px; /* Increased by 50px, adjust this value as needed */
+  left: -20px;
 }
 
 /* Character image container */
