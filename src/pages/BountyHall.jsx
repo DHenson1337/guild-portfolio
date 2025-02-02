@@ -1,7 +1,8 @@
-import React from "react";
+// src/pages/BountyHall.jsx
+import BountyHall from "../components/guild/BountyHall";
 
-function BountyHall() {
-  return <div>BountyHall</div>;
+function BountyHallPage() {
+  return <BountyHall />;
 }
 
-export default BountyHall;
+export default BountyHallPage;

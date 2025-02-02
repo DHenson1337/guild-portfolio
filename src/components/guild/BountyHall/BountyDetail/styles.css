@@ -1,0 +1,64 @@
+/* src/components/guild/BountyHall/BountyDetail/styles.css */
+
+.bounty-detail {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.jail-cell {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  background-image: url("/assets/images/bountyHall/jailCell.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  padding: 1rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.bounty-info {
+  width: 100%;
+  text-align: center;
+}
+
+.bounty-title {
+  font-family: "MedievalSharp", cursive;
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.prisoner-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prisoner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .bounty-title {
+    font-size: 1.2rem;
+  }
+
+  .prisoner-container {
+    width: 80px;
+    height: 80px;
+  }
+}
