@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useGuild } from "../../../../context/GuildContext";
 import BountyCard from "../BountyCard";
+import DustParticles from "../../../shared/DustParticles";
 import "./styles.css";
 
 const BountyBoard = ({ onBountySelect }) => {
@@ -42,6 +43,7 @@ const BountyBoard = ({ onBountySelect }) => {
 
   return (
     <div className="bounty-board-container">
+      <DustParticles />
       <div className="bounty-board">
         <div className="bounty-grid">
           {bounties.map((bounty) => (
