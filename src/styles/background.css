@@ -5,30 +5,97 @@ body {
   overflow-x: hidden;
 }
 
-/* Grid overlay effect */
-body::before {
-  content: "";
+/* Grid overlay effect - moved directly to body */
+body {
+  background-image: linear-gradient(
+      90deg,
+      rgba(96, 165, 250, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(rgba(96, 165, 250, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+}
+
+/* Theme-specific grid colors */
+body:not(.dark-theme) {
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 215, 0, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px);
+}
+
+/* Ambient glow effect - reduced further */
+.ambient-glow {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 50px 50px;
+  z-index: 0;
+  opacity: 0.15; /* Reduced further */
   pointer-events: none;
-  z-index: -1;
 }
 
-/* Theme-specific grid colors */
-body:not(.dark-theme)::before {
-  /* Light theme - Golden grid */
-  --grid: rgba(255, 215, 0, 0.08);
+.glow-point {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    var(--primary) 0%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: glow-pulse 8s ease-in-out infinite;
 }
 
-body.dark-theme::before {
-  /* Dark theme - Mystical blue grid */
-  --grid: rgba(96, 165, 250, 0.08);
+.glow-point:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  animation-delay: 0s;
+  opacity: 0.1;
+}
+
+.glow-point:nth-child(2) {
+  top: 60%;
+  right: 15%;
+  width: 400px;
+  height: 400px;
+  animation-delay: -2s;
+  opacity: 0.1;
+}
+
+.glow-point:nth-child(3) {
+  bottom: 10%;
+  left: 20%;
+  width: 250px;
+  height: 250px;
+  animation-delay: -4s;
+  opacity: 0.1;
+}
+
+/* Z-index layering */
+.layout {
+  position: relative;
+  z-index: 1;
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  position: relative;
+  z-index: 2;
+}
+
+.particle-container {
+  z-index: 0;
 }
 
 /* Navbar glow effect */
@@ -43,4 +110,17 @@ header::after {
   opacity: 0.3;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Animation for glow points */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.15;
+    transform: scale(1.1);
+  }
 }

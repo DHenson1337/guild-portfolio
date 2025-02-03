@@ -56,7 +56,7 @@ const QuestBoard = ({ onQuestSelect }) => {
       },
     },
     {
-      id: 4,
+      id: 5,
       title: "Project 1",
       description: "A description of project 1",
       technologies: ["React", "Node.js"],

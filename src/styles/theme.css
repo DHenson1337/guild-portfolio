@@ -46,6 +46,10 @@
 
   /* Border Radius */
   --border-radius: 0.5rem;
+
+  /* Grid Colors */
+  --grid-light: rgba(255, 215, 0, 0.15);
+  --grid-dark: rgba(96, 165, 250, 0.15);
 }
 
 /* Light Theme */

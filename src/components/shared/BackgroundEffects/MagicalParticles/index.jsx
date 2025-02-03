@@ -3,16 +3,21 @@ import "./styles.css";
 
 const MagicalParticles = () => {
   const containerRef = useRef(null);
+  const particlesRef = useRef([]);
+  const maxParticles = 10; // Reduced from 15
 
   useEffect(() => {
     const container = containerRef.current;
-    const particles = [];
 
     const createParticle = () => {
+      // Check if we've reached max particles
+      if (particlesRef.current.length >= maxParticles) {
+        return;
+      }
+
       const particle = document.createElement("div");
       particle.className = "magical-particle";
 
-      // Random starting position
       const startX = Math.random() * window.innerWidth;
       const duration = 15 + Math.random() * 10;
       const offset = -50 + Math.random() * 100;
@@ -22,28 +27,28 @@ const MagicalParticles = () => {
       particle.style.setProperty("--offset", `${offset}px`);
 
       container.appendChild(particle);
-      particles.push(particle);
+      particlesRef.current.push(particle);
 
-      // Remove particle after animation
       particle.addEventListener("animationend", () => {
         particle.remove();
-        const index = particles.indexOf(particle);
-        if (index > -1) particles.splice(index, 1);
+        particlesRef.current = particlesRef.current.filter(
+          (p) => p !== particle
+        );
       });
     };
 
-    // Create initial particles
-    for (let i = 0; i < 15; i++) {
+    // Initial particles - create fewer
+    for (let i = 0; i < Math.min(5, maxParticles); i++) {
       setTimeout(createParticle, Math.random() * 2000);
     }
 
-    // Continuously create new particles
-    const interval = setInterval(createParticle, 3000);
+    // Longer interval between particle creation
+    const interval = setInterval(createParticle, 5000); // Increased from 3000
 
-    // Cleanup
     return () => {
       clearInterval(interval);
-      particles.forEach((particle) => particle.remove());
+      particlesRef.current.forEach((particle) => particle.remove());
+      particlesRef.current = [];
     };
   }, []);
 
