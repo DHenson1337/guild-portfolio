@@ -1,6 +1,7 @@
 // src/components/layout/Navigation/Layout.jsx
 import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router";
+import BackgroundEffects from "../../shared/BackgroundEffects";
 import "./Layout.css";
 
 function Layout() {
@@ -17,6 +18,8 @@ function Layout() {
 
   return (
     <div className="layout">
+      <BackgroundEffects />
+
       <header>
         <h1>The Guild Reception Desk</h1>
         <nav className="nav-container">

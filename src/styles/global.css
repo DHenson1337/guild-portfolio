@@ -6,6 +6,9 @@
 /* Import Breakpoints */
 @import "./breakpoints.css";
 
+/* Bavkground Styles */
+@import "./background.css";
+
 /* Root Font Sizing */
 :root {
   font-size: 16px; /* Base size for mobile */

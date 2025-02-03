@@ -1,0 +1,46 @@
+/* Base background setup */
+body {
+  background-color: var(--background);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Grid overlay effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Theme-specific grid colors */
+body:not(.dark-theme)::before {
+  /* Light theme - Golden grid */
+  --grid: rgba(255, 215, 0, 0.08);
+}
+
+body.dark-theme::before {
+  /* Dark theme - Mystical blue grid */
+  --grid: rgba(96, 165, 250, 0.08);
+}
+
+/* Navbar glow effect */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(to bottom, var(--primary) 0%, transparent 100%);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+}
