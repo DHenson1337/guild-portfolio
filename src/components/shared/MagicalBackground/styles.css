@@ -1,0 +1,170 @@
+.magical-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Magic Circles */
+.magic-circle {
+  position: absolute;
+  opacity: 0.1;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 0.5;
+}
+
+/* Circle Positions and Sizes */
+.circle-1 {
+  width: 600px;
+  height: 600px;
+  top: -100px;
+  right: -100px;
+  animation: rotate 40s linear infinite;
+}
+
+.circle-2 {
+  width: 400px;
+  height: 400px;
+  bottom: -50px;
+  left: -50px;
+  animation: rotate-reverse 30s linear infinite;
+}
+
+.circle-3 {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+/* Theme-specific styles */
+body.dark-theme .magic-circle {
+  stroke: var(--primary);
+  opacity: 0.15;
+}
+
+/* Circle Elements */
+.outer-ring {
+  stroke-dasharray: 10;
+  animation: dash 20s linear infinite;
+}
+
+.inner-ring {
+  stroke-dasharray: 5;
+  animation: dash-reverse 15s linear infinite;
+}
+
+.rune {
+  fill: var(--accent);
+  opacity: 0.2;
+}
+
+.star {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 0.5;
+  opacity: 0.15;
+}
+
+.arcane-symbols {
+  stroke: var(--accent);
+  stroke-width: 0.5;
+  stroke-dasharray: 5;
+  animation: dash 10s linear infinite;
+}
+
+/* Sparkles */
+.magical-sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  left: var(--position);
+  opacity: 0;
+  animation: sparkle 4s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* Animations */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.15;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
+@keyframes dash-reverse {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-200px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Parchment Texture */
+.parchment-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+}
