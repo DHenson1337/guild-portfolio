@@ -1,0 +1,59 @@
+/* src/components/shared/MagicCursor/styles.css */
+html {
+  cursor: none;
+}
+
+#magic-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 1000000;
+}
+
+#ball {
+  position: fixed;
+  display: block;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 999;
+}
+
+#dot {
+  position: fixed;
+  display: block;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--primary);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 1000;
+}
+
+/* Theme-specific styles */
+body.dark-theme #ball {
+  border-color: var(--primary-dark);
+}
+
+body.dark-theme #dot {
+  background-color: var(--primary-dark);
+}
+
+body:not(.dark-theme) #ball {
+  border-color: var(--primary-light);
+}
+
+body:not(.dark-theme) #dot {
+  background-color: var(--primary-light);
+}

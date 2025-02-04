@@ -1,7 +1,9 @@
 // src/components/layout/Navigation/Layout.jsx
 import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router";
-import BackgroundEffects from "../../shared/BackgroundEffects";
+import MagicCursor from "../../shared/MagicCursor";
+// import ParallaxBackground from "../../shared/ParallaxBackground";
+// import BackgroundEffects from "../../shared/BackgroundEffects";
 import "./Layout.css";
 
 function Layout() {
@@ -18,7 +20,9 @@ function Layout() {
 
   return (
     <div className="layout">
-      <BackgroundEffects />
+      {/* <BackgroundEffects /> */}
+      {/* <ParallaxBackground /> */}
+      <MagicCursor />
 
       <header>
         <h1>The Guild Reception Desk</h1>

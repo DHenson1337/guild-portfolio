@@ -1,0 +1,72 @@
+/* src/components/shared/ParallaxBackground/styles.css */
+.parallax-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.background-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+}
+
+/* Magical circles for scroll parallax */
+.magical-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  opacity: 0.1;
+}
+
+.magical-circle:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  top: 20%;
+  left: 10%;
+}
+
+.magical-circle:nth-child(3) {
+  width: 300px;
+  height: 300px;
+  bottom: 30%;
+  right: 15%;
+}
+
+/* Particles for mouse parallax */
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: transform 0.1s ease-out;
+}
+
+/* Theme-specific styles */
+body.dark-theme .particle {
+  background: var(--primary-dark);
+}
+
+body:not(.dark-theme) .particle {
+  background: var(--primary-light);
+}
+
+/* Optional: Add smooth transitions for theme changes */
+.magical-circle,
+.particle {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
