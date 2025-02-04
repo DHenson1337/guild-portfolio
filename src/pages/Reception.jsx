@@ -1,17 +1,24 @@
 // src/pages/Reception.jsx
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import GuildArea from "../components/guild/GuildArea";
 import { useGuild } from "../context/GuildContext";
+import WizardLoader from "../components/shared/WizardLoader";
 
 function Reception() {
   const { updateDialogue } = useGuild();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Update dialogue when component mounts
     updateDialogue(
       "Welcome to the Reception! Choose any quest and I'll share the details."
     );
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
+
+  if (isLoading) {
+    return (
+      <WizardLoader onFinished={() => setIsLoading(false)} duration={1200} />
+    );
+  }
 
   const deskContent = (
     <div>
@@ -26,7 +33,6 @@ function Reception() {
 
   return (
     <GuildArea deskContent={deskContent}>
-      {/* Main content area */}
       <div className="reception-content">
         <h2>Main Content</h2>
         <p>Example content...</p>

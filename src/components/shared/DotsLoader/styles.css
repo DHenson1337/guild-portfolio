@@ -1,0 +1,192 @@
+/* src/components/shared/DotsLoader/styles.css */
+.loader-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+}
+
+.loader {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader.disperse {
+  animation: disperseContainer 0.3s ease-in-out forwards;
+}
+
+/* Rune circle */
+.loader:before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: runeGlow 3s infinite linear;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: runeGlow 3s infinite linear reverse;
+}
+
+.loader--dot {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  transform-origin: center;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  background-color: currentColor;
+  box-shadow: 0 0 20px currentColor;
+  opacity: 0.8;
+}
+
+/* Theme-aware colors */
+body.dark-theme .loader--dot:first-child {
+  color: var(--primary-dark);
+}
+body.dark-theme .loader--dot:nth-child(2) {
+  color: var(--secondary-dark);
+}
+body.dark-theme .loader--dot:nth-child(3) {
+  color: var(--accent-dark);
+}
+body.dark-theme .loader--dot:nth-child(4) {
+  color: var(--primary-dark);
+}
+body.dark-theme .loader--dot:nth-child(5) {
+  color: var(--secondary-dark);
+}
+body.dark-theme .loader--dot:nth-child(6) {
+  color: var(--accent-dark);
+}
+
+body:not(.dark-theme) .loader--dot:first-child {
+  color: var(--primary-light);
+}
+body:not(.dark-theme) .loader--dot:nth-child(2) {
+  color: var(--secondary-light);
+}
+body:not(.dark-theme) .loader--dot:nth-child(3) {
+  color: var(--accent-light);
+}
+body:not(.dark-theme) .loader--dot:nth-child(4) {
+  color: var(--primary-light);
+}
+body:not(.dark-theme) .loader--dot:nth-child(5) {
+  color: var(--secondary-light);
+}
+body:not(.dark-theme) .loader--dot:nth-child(6) {
+  color: var(--accent-light);
+}
+
+.loader--dot:nth-child(1) {
+  animation: moveInCircle 3s infinite linear;
+}
+.loader--dot:nth-child(2) {
+  animation: moveInCircle 3s infinite linear;
+  animation-delay: -0.5s;
+}
+.loader--dot:nth-child(3) {
+  animation: moveInCircle 3s infinite linear;
+  animation-delay: -1s;
+}
+.loader--dot:nth-child(4) {
+  animation: moveInCircle 3s infinite linear;
+  animation-delay: -1.5s;
+}
+.loader--dot:nth-child(5) {
+  animation: moveInCircle 3s infinite linear;
+  animation-delay: -2s;
+}
+.loader--dot:nth-child(6) {
+  animation: moveInCircle 3s infinite linear;
+  animation-delay: -2.5s;
+}
+
+.loader--text {
+  position: absolute;
+  width: max-content;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "MedievalSharp", cursive;
+  color: var(--text);
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px var(--accent);
+}
+
+.loader--text:after {
+  content: "Opening Portal";
+  font-weight: bold;
+  animation: loading-text 1.5s infinite;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg) translate(50px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(50px) rotate(-360deg);
+  }
+}
+
+@keyframes runeGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes disperseContainer {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes loading-text {
+  0% {
+    content: "Opening Portal";
+  }
+  33% {
+    content: "Casting Spell";
+  }
+  66% {
+    content: "Summoning Room";
+  }
+  100% {
+    content: "Materializing";
+  }
+}

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useGuild } from "../../../context/GuildContext";
 import QuestCard from "./QuestCard";
-import DustParticles from "../../shared/DustParticles";
+// import DustParticles from "../../shared/DustParticles";
 import "./styles.css";
 
 const QuestBoard = ({ onQuestSelect }) => {
@@ -88,7 +88,7 @@ const QuestBoard = ({ onQuestSelect }) => {
 
   return (
     <div className="quest-board-container">
-      <DustParticles />
+      {/* <DustParticles /> */}
       <div className="quest-board">
         <div className="quest-grid">
           {quests.map((quest) => (

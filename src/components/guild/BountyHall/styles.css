@@ -1,10 +1,23 @@
 /* src/components/guild/BountyHall/styles.css */
 
-.bounty-hall {
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  z-index: 100;
 }
 
-/* Any additional specific styles for the bounty hall can go here */
+.desk-loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}

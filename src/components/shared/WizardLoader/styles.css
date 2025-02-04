@@ -1,0 +1,443 @@
+/* src/components/shared/WizardLoader/styles.css */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--background);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.scene {
+  display: flex;
+}
+
+/* Wizard Base */
+.wizard {
+  position: relative;
+  width: 190px;
+  height: 240px;
+}
+
+.body {
+  position: absolute;
+  bottom: 0;
+  left: 68px;
+  height: 100px;
+  width: 60px;
+  background: var(--primary);
+}
+
+.body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  height: 100px;
+  width: 60px;
+  background: var(--primary);
+  transform: skewX(14deg);
+}
+
+/* Head and Face */
+.head {
+  position: absolute;
+  top: 0;
+  left: 14px;
+  width: 160px;
+  height: 210px;
+  transform-origin: center center;
+  transform: rotate(-3deg);
+  animation: head 10s ease-in-out infinite;
+}
+
+.beard {
+  position: absolute;
+  bottom: 0;
+  left: 38px;
+  height: 106px;
+  width: 80px;
+  border-bottom-right-radius: 55%;
+  background: var(--background);
+}
+
+.beard::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -10px;
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  background: var(--background);
+}
+
+.face {
+  position: absolute;
+  bottom: 76px;
+  left: 38px;
+  height: 30px;
+  width: 60px;
+  background: var(--accent);
+}
+
+.face::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 40px;
+  width: 20px;
+  height: 40px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: var(--accent);
+}
+
+.face::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -10px;
+  width: 50px;
+  height: 20px;
+  border-radius: 20px;
+  border-bottom-right-radius: 0px;
+  background: var(--background);
+}
+
+.adds {
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  background: var(--accent);
+}
+
+/* Hat */
+.hat {
+  position: absolute;
+  bottom: 106px;
+  left: 0;
+  width: 160px;
+  height: 20px;
+  border-radius: 20px;
+  background: var(--primary);
+}
+
+.hat::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 34px 70px 50px;
+  border-color: transparent transparent var(--primary) transparent;
+}
+
+.hat-of-the-hat {
+  position: absolute;
+  bottom: 78px;
+  left: 79px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 25px 25px 19px;
+  border-color: transparent transparent var(--primary) transparent;
+}
+
+/* Arms */
+.right-arm {
+  position: absolute;
+  bottom: 74px;
+  left: 110px;
+  height: 44px;
+  width: 90px;
+  background: var(--primary);
+  border-radius: 22px;
+  transform-origin: 16px 22px;
+  transform: rotate(70deg);
+  animation: right_arm 10s ease-in-out infinite;
+}
+
+.right-hand {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform-origin: center center;
+  transform: rotate(-40deg);
+  animation: right_hand 10s ease-in-out infinite;
+}
+
+.left-arm {
+  position: absolute;
+  bottom: 74px;
+  left: 26px;
+  height: 44px;
+  width: 70px;
+  background: var(--primary);
+  border-bottom-left-radius: 8px;
+  transform-origin: 60px 26px;
+  transform: rotate(-70deg);
+  animation: left_arm 10s ease-in-out infinite;
+}
+
+/* Floating Objects */
+.objects {
+  position: relative;
+  width: 200px;
+  height: 240px;
+}
+
+.square {
+  position: absolute;
+  bottom: -60px;
+  left: -5px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transform: rotate(-360deg);
+  animation: path_square 10s ease-in-out infinite;
+}
+
+.square::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--primary-light);
+}
+
+.circle {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transform: rotate(-360deg);
+  animation: path_circle 10s ease-in-out infinite;
+}
+
+.circle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.triangle {
+  position: absolute;
+  bottom: -62px;
+  left: -10px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  transform: rotate(-360deg);
+  animation: path_triangle 10s ease-in-out infinite;
+}
+
+.triangle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 28px 48px 28px;
+  border-color: transparent transparent var(--secondary) transparent;
+}
+
+/* Progress Bar */
+.progress {
+  position: relative;
+  margin-top: 60px;
+  width: 400px;
+  height: 4px;
+  background: var(--background);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  animation: progress 1.5s linear forwards;
+}
+
+/* Animations */
+@keyframes right_arm {
+  0%,
+  100% {
+    transform: rotate(70deg);
+  }
+  10% {
+    transform: rotate(8deg);
+  }
+  15% {
+    transform: rotate(20deg);
+  }
+  20% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(26deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  35% {
+    transform: rotate(28deg);
+  }
+  40% {
+    transform: rotate(9deg);
+  }
+  45% {
+    transform: rotate(28deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  58% {
+    transform: rotate(74deg);
+  }
+  62% {
+    transform: rotate(70deg);
+  }
+}
+
+@keyframes left_arm {
+  0%,
+  100% {
+    transform: rotate(-70deg);
+  }
+  10% {
+    transform: rotate(6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+  58% {
+    transform: rotate(-74deg);
+  }
+  62% {
+    transform: rotate(-70deg);
+  }
+}
+
+@keyframes path_circle {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-100px) rotate(-5deg);
+  }
+  55% {
+    transform: translateY(-100px) rotate(-360deg);
+  }
+  58% {
+    transform: translateY(-100px) rotate(-360deg);
+  }
+  63% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes path_square {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-155px) translateX(-15px) rotate(10deg);
+  }
+  55% {
+    transform: translateY(-155px) translateX(-15px) rotate(-350deg);
+  }
+  57% {
+    transform: translateY(-155px) translateX(-15px) rotate(-350deg);
+  }
+  63% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes path_triangle {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-172px) translateX(10px) rotate(-10deg);
+  }
+  55% {
+    transform: translateY(-172px) translateX(10px) rotate(-365deg);
+  }
+  58% {
+    transform: translateY(-172px) translateX(10px) rotate(-365deg);
+  }
+  63% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes head {
+  0% {
+    transform: rotate(-3deg);
+  }
+  10% {
+    transform: translateX(10px) rotate(7deg);
+  }
+  50% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  56% {
+    transform: rotate(-3deg);
+  }
+}
+
+/* Noise Overlay */
+.noise {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAD1BMVEUAAAAAAAAAAAAAAAAAAAAEq3+BAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBgUBGhh4aah5AAAAlklEQVQ4y2NgoBs4MTBwMGBgYCgAyiKDDQy8QHoiB5BkKWRkTwDxprADCYZGZkzIHCHmQgYDJRRlDxg4iVbmCKbRaJMpLCAI1LaMiUgtuDAjpOAkgwpQqTLQtDRgYBAlUVkFAwORygQYPOKJVJbFwMRGpLKthRCHExYI8EGCk4kJmKSB4QOKETgwGVFjBBEAALLKI5FWlYRyAAAAAElFTkSuQmCC");
+}

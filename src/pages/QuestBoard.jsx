@@ -1,20 +1,27 @@
 // src/pages/QuestBoard.jsx
 import { useState, useEffect } from "react";
 import { useGuild } from "../context/GuildContext";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import GuildArea from "../components/guild/GuildArea";
 import QuestBoard from "../components/guild/QuestBoard";
+import WizardLoader from "../components/shared/WizardLoader";
 
 function QuestBoardPage() {
   const [selectedQuestInfo, setSelectedQuestInfo] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { updateDialogue } = useGuild();
 
   useEffect(() => {
-    // Update dialogue when component mounts
     updateDialogue(
       "Welcome to the Projects Page! Choose any quest(project) and I'll share the details."
     );
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
+
+  if (isLoading) {
+    return (
+      <WizardLoader onFinished={() => setIsLoading(false)} duration={1500} />
+    );
+  }
 
   const deskContent = selectedQuestInfo ? (
     <motion.div
@@ -30,31 +37,16 @@ function QuestBoardPage() {
       }}
     >
       <h2>{selectedQuestInfo.title}</h2>
-      {selectedQuestInfo.liveLink && (
-        <a
-          href={selectedQuestInfo.liveLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="live-demo-link"
-        >
-          View Live Demo
-        </a>
-      )}
-      <a
-        href={selectedQuestInfo.liveLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="quest-image-link"
-      >
+      {selectedQuestInfo.image && (
         <motion.img
           src={selectedQuestInfo.image}
           alt={selectedQuestInfo.title}
-          style={{ maxWidth: "100%", height: "auto", cursor: "pointer" }}
+          style={{ maxWidth: "100%", height: "auto" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         />
-      </a>
+      )}
     </motion.div>
   ) : (
     <div>

@@ -4,11 +4,14 @@ import { useGuild } from "../../../context/GuildContext";
 import GuildArea from "../GuildArea";
 import BountyBoard from "./BountyBoard";
 import BountyDetail from "./BountyDetail";
+import WizardLoader from "../../shared/WizardLoader";
 import "./styles.css";
 
 function BountyHall() {
   const [selectedBounty, setSelectedBounty] = useState(null);
   const { updateDialogue } = useGuild();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingBounty, setIsLoadingBounty] = useState(false);
 
   useEffect(() => {
     // Update dialogue when component mounts
@@ -18,6 +21,12 @@ function BountyHall() {
   }, []);
 
   const deskContent = <BountyDetail bounty={selectedBounty} />;
+
+  if (isLoading) {
+    return (
+      <WizardLoader onFinished={() => setIsLoading(false)} duration={1500} />
+    );
+  }
 
   return (
     <GuildArea deskContent={deskContent}>

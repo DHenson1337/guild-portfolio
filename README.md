@@ -24,3 +24,6 @@ jail cell - https://www.pngegg.com/en/png-wkmnl
 graduation cap - https://www.hiclipart.com/free-transparent-background-png-clipart-txyfw
 
 programmer icon - https://www.cleanpng.com/png-developer-icon-man-standing-on-cliff-overlooking-o-7963462/
+
+Css Loading component wizard - Author: Guilmain Dorian;
+Coded in: HTML (Pug), CSS (SCSS);

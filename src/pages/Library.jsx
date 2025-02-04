@@ -4,11 +4,13 @@ import { useGuild } from "../context/GuildContext";
 import { motion, AnimatePresence } from "framer-motion";
 import GuildArea from "../components/guild/GuildArea";
 import BookShelf from "../components/guild/Library/BookShelf";
+import WizardLoader from "../components/shared/WizardLoader";
 import openBookImg from "../assets/images/library/ui/open-book.png";
 import "../components/guild/Library/styles.css";
 
 function Library() {
   const [selectedSkillInfo, setSelectedSkillInfo] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { updateDialogue } = useGuild();
 
   useEffect(() => {
@@ -16,6 +18,12 @@ function Library() {
       "Welcome to the Library! Here you can explore all the skills and knowledge I've acquired."
     );
   }, []);
+
+  if (isLoading) {
+    return (
+      <WizardLoader onFinished={() => setIsLoading(false)} duration={1800} />
+    );
+  }
 
   const deskContent = selectedSkillInfo ? (
     <motion.div

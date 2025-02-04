@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useGuild } from "../../../../context/GuildContext";
 import BookCard from "../BookCard";
-import MagicParticles from "../MagicParticles";
+// import MagicParticles from "../MagicParticles";
 import "./styles.css";
 
 // Import book images
@@ -52,7 +52,7 @@ const BookShelf = ({ onSkillSelect }) => {
 
   return (
     <div className="bookshelf-container">
-      <MagicParticles />
+      {/* <MagicParticles /> */}
       <div className="bookshelf">
         <div className="books-grid">
           {skills.map((skill) => (

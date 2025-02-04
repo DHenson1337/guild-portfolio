@@ -1,0 +1,187 @@
+/* src/components/shared/FantasyLoader/styles.css */
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fantasy-loader {
+  position: relative;
+  transition: transform 1s;
+  transform-origin: center center;
+}
+
+/* Size variants */
+.fantasy-loader.sm {
+  width: 32px;
+  height: 48px;
+}
+
+.fantasy-loader.md {
+  width: 48px;
+  height: 64px;
+}
+
+.fantasy-loader.lg {
+  width: 120px;
+  height: 180px;
+}
+
+.fantasy-loader.flipped {
+  transform: rotate(180deg);
+}
+
+/* Hourglass frame */
+.hourglass-frame {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+
+.hourglass-frame.top {
+  top: 0;
+}
+
+.hourglass-frame.bottom {
+  bottom: 0;
+}
+
+.frame-border {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--secondary);
+}
+
+.hourglass-frame.top .frame-border {
+  border-radius: 8px 8px 0 0;
+}
+
+.hourglass-frame.bottom .frame-border {
+  border-radius: 0 0 8px 8px;
+}
+
+.frame-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hourglass-frame.top .frame-triangle {
+  bottom: 0;
+  border-top: 8px solid var(--secondary);
+}
+
+.hourglass-frame.bottom .frame-triangle {
+  top: 0;
+  border-bottom: 8px solid var(--secondary);
+}
+
+/* Sand animation */
+.sand-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sand-stream {
+  width: 2px;
+  background-color: var(--accent);
+  transition: height 2s linear;
+}
+
+.sand-stream.top {
+  height: 50%;
+}
+
+.sand-stream.bottom {
+  height: 0;
+}
+
+.flipped .sand-stream.top {
+  height: 0;
+}
+
+.flipped .sand-stream.bottom {
+  height: 50%;
+}
+
+.sand-drop {
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  transition: opacity 0.1s;
+  opacity: 0;
+}
+
+.flipped .sand-drop {
+  opacity: 1;
+}
+
+/* Sparkle effects */
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  animation: sparkle-ping 2s ease-in-out infinite;
+  box-shadow: 0 0 4px var(--accent);
+}
+
+.sparkle-1 {
+  top: 0;
+  left: 0;
+}
+
+.sparkle-2 {
+  top: 25%;
+  right: 0;
+  animation-delay: 0.5s;
+}
+
+.sparkle-3 {
+  bottom: 0;
+  right: 25%;
+  animation-delay: 1s;
+}
+
+@keyframes sparkle-ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Theme-specific styles */
+body.dark-theme .fantasy-loader {
+  --loader-color: var(--primary-dark);
+  --loader-accent: var(--accent-dark);
+}
+
+body:not(.dark-theme) .fantasy-loader {
+  --loader-color: var(--primary-light);
+  --loader-accent: var(--accent-light);
+}
