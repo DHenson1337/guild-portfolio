@@ -110,6 +110,17 @@ a:hover {
   color: var(--accent);
 }
 
+/* Cursor interaction styles */
+.nav-links a,
+.quest-card,
+.book-card,
+.bounty-card,
+.theme-toggle,
+.button-icon,
+[role="button"] {
+  transition: transform 0.3s ease;
+}
+
 /* Button Styling */
 button {
   cursor: pointer;

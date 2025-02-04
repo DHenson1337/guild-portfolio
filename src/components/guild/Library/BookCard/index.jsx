@@ -5,7 +5,7 @@ import "./styles.css";
 const BookCard = ({ skill, isSelected, onSelect }) => {
   return (
     <motion.div
-      className={`book-card ${isSelected ? "selected" : ""}`}
+      className={`book-card clickable ${isSelected ? "selected" : ""}`}
       onClick={() => onSelect(skill)}
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}

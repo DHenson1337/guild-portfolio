@@ -1,5 +1,9 @@
 /* src/components/guild/BountyHall/BountyCard/styles.css */
 
+.bounty-card * {
+  pointer-events: none;
+}
+
 .bounty-card {
   position: relative;
   width: 200px;

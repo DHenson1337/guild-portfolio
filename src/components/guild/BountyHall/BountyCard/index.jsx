@@ -11,7 +11,7 @@ const BountyCard = ({ bounty, isSelected, onSelect }) => {
 
   return (
     <motion.div
-      className={`bounty-card ${isSelected ? "selected" : ""}`}
+      className={`bounty-card clickable ${isSelected ? "selected" : ""}`}
       onClick={() => onSelect(bounty)}
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}

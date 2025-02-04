@@ -67,7 +67,7 @@ function GuildReceptionist() {
 
           {/* Receptionist */}
           <div
-            className="character"
+            className="character clickable"
             onClick={handleCharacterClick}
             style={{
               cursor: isInteractionEnabled ? "pointer" : "default",

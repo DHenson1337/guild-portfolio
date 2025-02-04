@@ -9,7 +9,7 @@ const QuestCard = ({ quest, isSelected, onSelect }) => {
 
   return (
     <motion.div
-      className={`quest-card ${isSelected ? "selected" : ""}`}
+      className={`quest-card clickable ${isSelected ? "selected" : ""}`}
       onClick={() => onSelect(quest)}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}

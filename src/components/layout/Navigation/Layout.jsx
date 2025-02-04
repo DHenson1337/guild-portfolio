@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router";
 import MagicCursor from "../../shared/MagicCursor";
+import MagicalParticles from "../../shared/MagicalParticles";
 // import ParallaxBackground from "../../shared/ParallaxBackground";
 // import BackgroundEffects from "../../shared/BackgroundEffects";
 import "./Layout.css";
@@ -23,6 +24,7 @@ function Layout() {
       {/* <BackgroundEffects /> */}
       {/* <ParallaxBackground /> */}
       <MagicCursor />
+      <MagicalParticles />
 
       <header>
         <h1>The Guild Reception Desk</h1>

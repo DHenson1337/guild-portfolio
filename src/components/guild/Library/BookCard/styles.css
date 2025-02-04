@@ -1,5 +1,9 @@
 /* src/components/guild/Library/BookCard/styles.css */
 
+.book-card * {
+  pointer-events: none; /* This ensures child elements don't interfere with hover detection */
+}
+
 .book-card {
   position: relative;
   width: 100px;

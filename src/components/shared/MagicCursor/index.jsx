@@ -47,12 +47,37 @@ const MagicCursor = () => {
       gsap.set(ball, { x: ballPos.x, y: ballPos.y });
     };
 
+    // Add hover functionality
+    const handleMouseOver = (e) => {
+      const isQuestLink = e.target.matches(".quest-link");
+      const isClickable = e.target.matches(
+        'a, button, [role="button"], input, select, textarea, .clickable'
+      );
+
+      if (isQuestLink) {
+        dot.classList.add("clickable");
+        ball.classList.add("clickable", "quest-link-hover");
+      } else if (isClickable) {
+        dot.classList.add("clickable");
+        ball.classList.add("clickable");
+      }
+    };
+
+    const handleMouseOut = () => {
+      dot.classList.remove("clickable", "quest-link-hover");
+      ball.classList.remove("clickable", "quest-link-hover");
+    };
+
     document.addEventListener("mousemove", mouseMove);
+    document.addEventListener("mouseover", handleMouseOver);
+    document.addEventListener("mouseout", handleMouseOut);
     gsap.ticker.add(updatePosition);
 
     // Cleanup
     return () => {
       document.removeEventListener("mousemove", mouseMove);
+      document.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("mouseout", handleMouseOut);
       gsap.ticker.remove(updatePosition);
     };
   }, []);

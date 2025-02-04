@@ -1,19 +1,16 @@
 /* src/components/guild/QuestBoard/QuestCard/styles.css */
-
 .quest-card {
   position: relative;
   width: 170px;
   height: 225px;
   cursor: pointer;
-  /* Using the parchment background */
   background-image: url("../../../../assets/images/questboard/questPaper.png");
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  bottom: -25px;
   overflow: hidden;
-  /* Add a subtle shadow */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: auto !important; /* Ensure the card is clickable */
 }
 
 .quest-content {
@@ -26,10 +23,13 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  transform: translateX(-20px); /* moves to the left */
-  /* Add some space for the ornate border in the parchment */
+  transform: translateX(-20px);
   margin: 20px;
   box-sizing: border-box;
+}
+
+.quest-content * {
+  pointer-events: none;
 }
 
 .quest-image-container {
@@ -68,6 +68,7 @@
   background: rgba(0, 0, 0, 0.6);
   padding: 5px;
   border-radius: 4px;
+  pointer-events: auto;
 }
 
 .quest-card:hover .quest-links {
@@ -78,10 +79,11 @@
 .quest-link {
   color: var(--text-dark);
   transition: color 0.3s ease;
+  pointer-events: auto;
 }
 
 .quest-link:hover {
-  color: var(--accent);
+  color: #ef4444; /* Red color for hover */
 }
 
 /* Selected state styles */
@@ -89,8 +91,6 @@
   box-shadow: 0 0 15px var(--accent);
   transform: scale(1.02);
 }
-
-/* Hover state will be handled by framer-motion */
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
