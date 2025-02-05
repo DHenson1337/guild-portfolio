@@ -5,25 +5,24 @@ import BookCard from "../BookCard";
 // import MagicParticles from "../MagicParticles";
 import "./styles.css";
 
-// Import book images
-// Import book images
-import bookRed from "@/assets/images/library/books/book-red.png";
-import bookBlue from "@/assets/images/library/books/book-blue.png";
-import bookNavy from "@/assets/images/library/books/book-navy.png";
-import bookBrown from "@/assets/images/library/books/book-brown.png";
-import bookGreen from "@/assets/images/library/books/book-green.png";
+// Book images
+const bookRed = "/assets/images/library/books/book-red.png";
+const bookBlue = "/assets/images/library/books/book-blue.png";
+const bookNavy = "/assets/images/library/books/book-navy.png";
+const bookBrown = "/assets/images/library/books/book-brown.png";
+const bookGreen = "/assets/images/library/books/book-green.png";
 
-// Import logos (icons)
-import react from "@/assets/images/library/icons/react-logo.png";
-import node from "@/assets/images/library/icons/nodejs-logo.png";
-import bootstrap from "@/assets/images/library/icons/bootstrap-logo.png";
-import css from "@/assets/images/library/icons/css-logo.png";
-import html from "@/assets/images/library/icons/html-logo.png";
-import js from "@/assets/images/library/icons/js-logo.png";
-import mernstack from "@/assets/images/library/icons/mernstack-logo.png";
-import mongodb from "@/assets/images/library/icons/mongodb-logo.png";
-import phaser from "@/assets/images/library/icons/phaser-logo.png";
-import tailwind from "@/assets/images/library/icons/tailwind-logo.png";
+// Icons
+const react = "/assets/images/library/icons/react-logo.png";
+const node = "/assets/images/library/icons/nodejs-logo.png";
+const bootstrap = "/assets/images/library/icons/bootstrap-logo.png";
+const css = "/assets/images/library/icons/css-logo.png";
+const html = "/assets/images/library/icons/html-logo.png";
+const js = "/assets/images/library/icons/js-logo.png";
+const mernstack = "/assets/images/library/icons/mernstack-logo.png";
+const mongodb = "/assets/images/library/icons/mongodb-logo.png";
+const phaser = "/assets/images/library/icons/phaser-logo.png";
+const tailwind = "/assets/images/library/icons/tailwind-logo.png";
 
 const BookShelf = ({ onSkillSelect }) => {
   const { updateDialogue } = useGuild();
