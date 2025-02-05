@@ -95,6 +95,7 @@ function Layout() {
           >
             GitHub
           </a>
+          <a href="/Credits">Credits</a>
         </nav>
       </footer>
     </div>
