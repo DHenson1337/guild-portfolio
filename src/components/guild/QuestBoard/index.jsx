@@ -44,34 +44,12 @@ const QuestBoard = ({ onQuestSelect }) => {
     {
       id: 3,
       title: "Sky Cast",
-      description: "A website advertising a potential future product",
+      description: "✨A website advertising a potential future product",
       technologies: ["HTML", "CSS"],
       image: "/assets/images/projects/p3.png",
       links: {
         github: "https://github.com/DHenson1337/SBA307-Sky-Cast",
         live: "https://dhenson1337.github.io/SBA307-Sky-Cast/index.html",
-      },
-    },
-    {
-      id: 4,
-      title: "Project 1",
-      description: "A description of project 1",
-      technologies: ["React", "Node.js"],
-      image: "/path/to/image1.jpg",
-      links: {
-        github: "https://github.com/...",
-        live: "https://...",
-      },
-    },
-    {
-      id: 5,
-      title: "Project 1",
-      description: "A description of project 1",
-      technologies: ["React", "Node.js"],
-      image: "/path/to/image1.jpg",
-      links: {
-        github: "https://github.com/...",
-        live: "https://...",
       },
     },
 

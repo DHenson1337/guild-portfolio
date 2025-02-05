@@ -56,7 +56,7 @@
 .tech-highlight {
   color: var(--accent);
   font-family: "MedievalSharp", cursive;
-  text-shadow: 0 0 5px var(--accent);
+  text-shadow: 0 0 1px var(--accent);
 }
 
 /* Specific theme colors */

@@ -27,7 +27,14 @@ function Layout() {
       <MagicalParticles />
 
       <header>
-        <h1>The Guild Reception Desk</h1>
+        <div className="logo-title">
+          <img
+            src="/assets/images/guild-logo.png"
+            alt="Guild Logo"
+            className="guild-logo"
+          />
+          <h1>The Guild Reception Desk</h1>
+        </div>
         <nav className="nav-container">
           <div className="nav-links">
             <div className="nav-item">

@@ -24,7 +24,7 @@ function BountyHall() {
 
   if (isLoading) {
     return (
-      <WizardLoader onFinished={() => setIsLoading(false)} duration={1500} />
+      <WizardLoader onFinished={() => setIsLoading(false)} duration={3500} />
     );
   }
 
