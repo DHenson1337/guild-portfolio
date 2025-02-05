@@ -52,6 +52,22 @@
   --grid-dark: rgba(96, 165, 250, 0.15);
 }
 
+/* For recptionist */
+.tech-highlight {
+  color: var(--accent);
+  font-family: "MedievalSharp", cursive;
+  text-shadow: 0 0 5px var(--accent);
+}
+
+/* Specific theme colors */
+body.dark-theme .tech-highlight {
+  color: #60a5fa;
+}
+
+body:not(.dark-theme) .tech-highlight {
+  color: #ffd700;
+}
+
 /* Light Theme */
 body:not(.dark-theme) {
   --primary: var(--primary-light);

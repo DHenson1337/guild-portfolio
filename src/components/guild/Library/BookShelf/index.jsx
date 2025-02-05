@@ -116,7 +116,10 @@ const BookShelf = ({ onSkillSelect }) => {
   // Updated handler to simulate the guild receptionist's narration
   const handleBookSelect = (skill) => {
     setSelectedBook(skill);
-    updateDialogue(`"${skill.title}": ${skill.description}`);
+    updateDialogue({
+      type: "html",
+      content: `"<span class="tech-highlight">${skill.title}</span>": ${skill.description}`,
+    });
     onSkillSelect({
       title: skill.title,
       icon: skill.icon,

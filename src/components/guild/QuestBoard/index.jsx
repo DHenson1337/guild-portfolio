@@ -80,13 +80,18 @@ const QuestBoard = ({ onQuestSelect }) => {
 
   const handleQuestSelect = (quest) => {
     setSelectedQuest(quest);
-    updateDialogue(
-      `This quest involves ${quest.technologies.join(", ")}. ${
-        quest.description
-      }`
-    );
 
-    // Send the quest info to the parent component
+    // Create highlighted technology string
+    const techString = quest.technologies
+      .map((tech) => `<span class="tech-highlight">${tech}</span>`)
+      .join(", ");
+
+    // Use the techString in the dialogue update
+    updateDialogue({
+      type: "html",
+      content: `This quest involves ${techString}. ${quest.description}`,
+    });
+
     onQuestSelect({
       title: quest.title,
       liveLink: quest.links?.live,

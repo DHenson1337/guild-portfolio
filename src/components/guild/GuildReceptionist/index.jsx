@@ -59,11 +59,14 @@ function GuildReceptionist() {
             className="dialogue-box"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            key={dialogue}
+            key={dialogue.content || dialogue}
             transition={{ duration: 0.3 }}
-          >
-            {dialogue}
-          </motion.div>
+            dangerouslySetInnerHTML={
+              typeof dialogue === "object" && dialogue.type === "html"
+                ? { __html: dialogue.content }
+                : { __html: dialogue }
+            }
+          />
 
           {/* Receptionist */}
           <div
