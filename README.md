@@ -1,31 +1,54 @@
-# React + Vite
+# 🏰 The Guild Reception Desk - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fantasy-themed portfolio website that transforms the traditional developer portfolio into an immersive **guild hall experience**. Built with **React** and enriched with magical animations and interactive elements.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Fantasy Guild Interface**: Navigate through different sections styled as guild facilities:
 
-# guild-portfolio
+  - 🏛️ **Reception** (About)
+  - 📜 **Quest Board** (Projects)
+  - 📖 **Library** (Skills)
+  - 🎯 **Bounty Hall** (Experience)
 
-Read me i'll properly clean this up later:
+- **Interactive Elements**
+  - 🖱️ Theme-aware **magical cursor**
+  - 💬 **Dynamic dialogue system**
+  - 🎭 **Animated transitions**
+  - 📱 **Responsive design**
 
-QuestBoard - https://chronicles-of-eternia.com/forum/printthread.php?tid=2736
+## 🛠 Built With
 
-Books - https://thetrevisan.itch.io/free-elementalbooks
+- **React** 18.3.1
+- **React Router** 7.1.3
+- **Framer Motion** 12.0.6
+- **Vite** 6.0.5
 
-Bounty Paper - new.express.abdobe.come (A template)
+## 🚀 Getting Started
 
-Bounty board - https://www.patreon.com/posts/cloister-of-eggs-85222490?l=fr
+Follow these steps to set up the project locally:
 
-jail cell - https://www.pngegg.com/en/png-wkmnl
+### 1️⃣ Clone the repository
 
-graduation cap - https://www.hiclipart.com/free-transparent-background-png-clipart-txyfw
+```bash
+git clone https://github.com/yourusername/guild-portfolio.git
+cd guild-portfolio
 
-programmer icon - https://www.cleanpng.com/png-developer-icon-man-standing-on-cliff-overlooking-o-7963462/
+📜 Credits
+🎨 Visual Elements
+Quest Board Design - Chronicles of Eternia
+Mystical Books - The Trevisan Collection
+Bounty Board - Cloister Collection
+Bounty Paper Template - Adobe Express
+🏛️ Additional Assets
+Jail Cell - PNGEgg
+Graduation Cap - HiClipart
+Programmer Icon - CleanPNG
+🪄 Interface Enchantments
+Wizard Loading Animation - Author: Guilmain Dorian (Coded in HTML (Pug) & CSS (SCSS))
+Magical Cursor - Mustafa Uncuoglu (CodePen)
+📝 License
 
-Css Loading component wizard - Author: Guilmain Dorian;
-Coded in: HTML (Pug), CSS (SCSS);
-
-Magic Cursor - https://codepen.io/mustafauncuoglu/details/vYwjzqW
+🌟 Author
+Davon Henson
+```
