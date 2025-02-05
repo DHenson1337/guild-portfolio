@@ -5,8 +5,8 @@ import { useGuild } from "../../../context/GuildContext";
 import "./styles.css";
 
 // Import new receptionist images
-import Receptionist1 from "../../../assets/images/receptionist/Receptionist1.png"; // Dark theme
-import Receptionist2 from "../../../assets/images/receptionist/Receptionist2.png"; // Light theme
+import Receptionist1 from "@/assets/images/receptionist/Receptionist1.png"; //DarkTheme
+import Receptionist2 from "@/assets/images/receptionist/Receptionist2.png"; //EvilTheme
 
 function GuildReceptionist() {
   const { dialogue, isInteractionEnabled, handleCharacterClick } = useGuild();

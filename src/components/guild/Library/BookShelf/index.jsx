@@ -6,23 +6,24 @@ import BookCard from "../BookCard";
 import "./styles.css";
 
 // Import book images
-import bookRed from "../../../../assets/images/library/books/book-red.png";
-import bookBlue from "../../../../assets/images/library/books/book-blue.png";
-import bookNavy from "../../../../assets/images/library/books/book-navy.png";
-import bookBrown from "../../../../assets/images/library/books/book-brown.png";
-import bookGreen from "../../../../assets/images/library/books/book-green.png";
+// Import book images
+import bookRed from "@/assets/images/library/books/book-red.png";
+import bookBlue from "@/assets/images/library/books/book-blue.png";
+import bookNavy from "@/assets/images/library/books/book-navy.png";
+import bookBrown from "@/assets/images/library/books/book-brown.png";
+import bookGreen from "@/assets/images/library/books/book-green.png";
 
 // Import logos (icons)
-import react from "../../../../assets/images/library/icons/react-logo.png";
-import node from "../../../../assets/images/library/icons/nodejs-logo.png";
-import bootstrap from "../../../../assets/images/library/icons/bootstrap-logo.png";
-import css from "../../../../assets/images/library/icons/css-logo.png";
-import html from "../../../../assets/images/library/icons/html-logo.png";
-import js from "../../../../assets/images/library/icons/js-logo.png";
-import mernstack from "../../../../assets/images/library/icons/mernstack-logo.png";
-import mongodb from "../../../../assets/images/library/icons/mongodb-logo.png";
-import phaser from "../../../../assets/images/library/icons/phaser-logo.png";
-import tailwind from "../../../../assets/images/library/icons/tailwind-logo.png";
+import react from "@/assets/images/library/icons/react-logo.png";
+import node from "@/assets/images/library/icons/nodejs-logo.png";
+import bootstrap from "@/assets/images/library/icons/bootstrap-logo.png";
+import css from "@/assets/images/library/icons/css-logo.png";
+import html from "@/assets/images/library/icons/html-logo.png";
+import js from "@/assets/images/library/icons/js-logo.png";
+import mernstack from "@/assets/images/library/icons/mernstack-logo.png";
+import mongodb from "@/assets/images/library/icons/mongodb-logo.png";
+import phaser from "@/assets/images/library/icons/phaser-logo.png";
+import tailwind from "@/assets/images/library/icons/tailwind-logo.png";
 
 const BookShelf = ({ onSkillSelect }) => {
   const { updateDialogue } = useGuild();
