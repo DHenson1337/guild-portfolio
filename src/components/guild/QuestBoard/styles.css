@@ -10,7 +10,8 @@
 
 .quest-board {
   width: 100%;
-  height: calc(100vh - 200px); /* Adjust based on your header/footer */
+  /* height: calc(100vh - 200px);  */
+  height: 100%;
   background-image: url("/assets/images/questboard/questBoard.jpg");
   background-size: 100% 100%;
   /* background-size: cover; */

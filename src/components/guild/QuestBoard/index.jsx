@@ -67,7 +67,7 @@ const QuestBoard = ({ onQuestSelect }) => {
       },
     },
 
-    // Add more sample quests...
+    // Add more sample quests... someday
   ];
 
   const handleQuestSelect = (quest) => {

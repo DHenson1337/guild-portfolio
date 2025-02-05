@@ -27,3 +27,5 @@ programmer icon - https://www.cleanpng.com/png-developer-icon-man-standing-on-cl
 
 Css Loading component wizard - Author: Guilmain Dorian;
 Coded in: HTML (Pug), CSS (SCSS);
+
+Magic Cursor - https://codepen.io/mustafauncuoglu/details/vYwjzqW

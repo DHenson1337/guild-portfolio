@@ -2,9 +2,11 @@
 import { useState, useEffect } from "react";
 import { useGuild } from "../context/GuildContext";
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import GuildArea from "../components/guild/GuildArea";
 import QuestBoard from "../components/guild/QuestBoard";
 import WizardLoader from "../components/shared/WizardLoader";
+import "./QuestBoard.css";
 
 function QuestBoardPage() {
   const [selectedQuestInfo, setSelectedQuestInfo] = useState(null);
@@ -23,33 +25,46 @@ function QuestBoardPage() {
     );
   }
 
+  // Enhanced desk content to include clickable image and live link
   const deskContent = selectedQuestInfo ? (
     <motion.div
       key={selectedQuestInfo.title}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      style={{
-        padding: "1rem",
-        border: "2px solid var(--secondary)",
-        borderRadius: "8px",
-        animation: "shimmer-border 1.5s ease-in-out",
-      }}
+      className="quest-details"
     >
       <h2>{selectedQuestInfo.title}</h2>
+      {selectedQuestInfo.liveLink && (
+        <a
+          href={selectedQuestInfo.liveLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="live-link"
+        >
+          <ExternalLink size={16} /> View Live Project
+        </a>
+      )}
       {selectedQuestInfo.image && (
-        <motion.img
-          src={selectedQuestInfo.image}
-          alt={selectedQuestInfo.title}
-          style={{ maxWidth: "100%", height: "auto" }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        />
+        <a
+          href={selectedQuestInfo.liveLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="quest-image-link"
+        >
+          <motion.img
+            src={selectedQuestInfo.image}
+            alt={selectedQuestInfo.title}
+            className="quest-detail-image"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          />
+        </a>
       )}
     </motion.div>
   ) : (
-    <div>
+    <div className="quest-welcome">
       <h2>Welcome to the Quest Board</h2>
       <p>Select a quest to view more details about the project.</p>
     </div>

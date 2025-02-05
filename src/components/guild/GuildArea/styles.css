@@ -1,12 +1,11 @@
 /* Guild Area layout */
 .guild-container {
   display: grid;
-  grid-template-columns: 450px 1fr; /* Locks 450px width for left panel */
+  grid-template-columns: 450px 1fr;
   width: 100%;
-  max-width: 1920px; /* Prevents stretching on ultra-wide screens */
+  max-width: 1920px;
   margin: 0 auto;
-  height: 100vh;
-  min-height: 600px;
+  height: calc(100vh - 120px);
   overflow: hidden;
 }
 
@@ -15,39 +14,89 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Control overall height */
+  height: 100%;
+  transform-origin: bottom center;
 }
 
+.right-panel {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--wood-primary-dark) transparent;
+}
+
+.right-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.right-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.right-panel::-webkit-scrollbar-thumb {
+  background-color: var(--wood-primary-dark);
+  border-radius: 20px;
+}
+
+.right-panel::-webkit-scrollbar-thumb:hover {
+  background-color: var(--wood-primary-light);
+}
+
+/* Responsive scaling for left panel */
+@media screen and (max-height: 800px) {
+  .left-panel {
+    transform: scale(0.9);
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .left-panel {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .left-panel {
+    transform: scale(0.7);
+  }
+}
+
+/* Regular media queries */
 @media (max-width: 1920px) {
-  /* Only affects screens below 1920px */
   .character-wrapper {
-    width: clamp(400px, 20vw, 600px); /* Double the size */
+    width: clamp(400px, 20vw, 600px);
     transform: translateY(-50%);
   }
 
   .character-image {
-    max-width: 390px; /* Make sure image scales */
+    max-width: 390px;
   }
 }
 
-/* For Ultra-Wide Screens (2560x1080 and above) */
 @media (min-width: 2000px) {
   .guild-container {
-    min-height: 750px; /* Increases height so Ribbon and desk stay visible */
+    height: calc(100vh - 120px);
   }
 }
 
-/* For Smaller Screens (Laptops, etc.) */
 @media (max-width: 1440px) {
   .guild-container {
-    min-height: 750px; /* Slightly lower min-height for laptops */
+    height: calc(100vh - 120px);
+  }
+
+  .left-panel {
+    transform: scale(0.95);
   }
 }
 
-/* For Very Small Screens (Tablets) */
 @media (max-width: 1024px) {
   .guild-container {
-    min-height: 500px; /* Ensures layout doesn't break */
+    height: calc(100vh - 120px);
+  }
+
+  .left-panel {
+    transform: scale(0.9);
   }
 }
 
@@ -56,33 +105,36 @@
   .guild-container {
     display: flex;
     flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 120px);
   }
 
   .left-panel {
     width: 100%;
     height: auto;
     min-height: 500px;
-    order: 2; /* Move to bottom */
+    order: 2;
+    transform: scale(0.85);
   }
 
   .right-panel {
     width: 100%;
     padding: 1rem;
-    order: 1; /* Move to top */
+    order: 1;
     height: auto;
-    overflow-y: auto;
   }
 }
 
-/* Mobile adjustments */
+/* Mobile L */
 @media screen and (max-width: 425px) {
   .left-panel {
-    min-height: 450px;
+    transform: scale(0.75);
   }
 }
 
+/* Mobile S */
 @media screen and (max-width: 320px) {
   .left-panel {
-    min-height: 400px;
+    transform: scale(0.65);
   }
 }

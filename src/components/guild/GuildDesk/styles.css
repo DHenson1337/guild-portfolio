@@ -32,7 +32,8 @@
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  max-height: 50%;
+  height: 150px; /* Fixed height for content area - adjust as needed */
+  max-height: 150px; /* Ensure it doesn't grow beyond this height */
   bottom: 50px;
 }
 

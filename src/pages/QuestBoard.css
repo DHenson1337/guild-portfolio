@@ -1,0 +1,59 @@
+/* src/pages/QuestBoard.css */
+/* Quest details container */
+.quest-details {
+  padding: 1rem;
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  animation: shimmer-border 1.5s ease-in-out;
+}
+
+/* Live project link styling */
+.live-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0.5rem 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.live-link:hover {
+  color: var(--primary);
+}
+
+/* Clickable image container */
+.quest-image-link {
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.quest-image-link:hover {
+  transform: scale(1.02);
+}
+
+/* Quest image styling */
+.quest-detail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Welcome message styling */
+.quest-welcome {
+  padding: 1rem;
+}
+
+/* Border animation */
+@keyframes shimmer-border {
+  0%,
+  100% {
+    border-color: var(--secondary);
+    box-shadow: 0 0 10px var(--secondary);
+  }
+  50% {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+  }
+}

@@ -10,7 +10,8 @@
 
 .bookshelf {
   width: 100%;
-  height: calc(100vh - 200px);
+  /* height: calc(100vh - 200px); */
+  height: 100%;
   background-image: url("/assets/images/library/bookshelf.jpg");
   background-size: 135% 130%;
   /* background-size: cover; */

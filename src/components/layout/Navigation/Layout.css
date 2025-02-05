@@ -177,6 +177,20 @@ footer {
   background-color: var(--secondary);
   padding: 2rem;
   margin-top: auto;
+  position: relative; /* Added for glow positioning */
+}
+
+/* Add glowing top border */
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  animation: glow 2s ease-in-out infinite;
 }
 
 footer nav {

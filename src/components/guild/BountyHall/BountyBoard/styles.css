@@ -10,7 +10,8 @@
 
 .bounty-board {
   width: 100%;
-  height: calc(100vh - 200px);
+  /* height: calc(100vh - 200px); */
+  height: 100%;
   background-image: url("/assets/images/bountyHall/bountyBoard.webp");
   background-size: 120% 120%;
   background-repeat: no-repeat;
