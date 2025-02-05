@@ -78,16 +78,18 @@ function Layout() {
       <footer>
         <nav>
           <Link to="/resume">Resume</Link>
-          <Link to="/portfolio">Game Portfolio</Link>
+          <Link to="https://dhenson1337.github.io/dev-portfolio/">
+            Game Portfolio
+          </Link>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/davon-e-henson/"
             target="_blank"
             rel="noopener noreferrer"
           >
             LinkedIn
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/DHenson1337"
             target="_blank"
             rel="noopener noreferrer"
           >
