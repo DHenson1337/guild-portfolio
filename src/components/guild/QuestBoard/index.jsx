@@ -52,6 +52,17 @@ const QuestBoard = ({ onQuestSelect }) => {
         live: "https://dhenson1337.github.io/SBA307-Sky-Cast/index.html",
       },
     },
+    {
+      id: 4,
+      title: "Apple Catcher",
+      description: "🍎A fun mini-game about catching apples!",
+      technologies: ["HTML", "CSS", "Phaser", "JavaScript"],
+      image: "/assets/images/projects/p5.png",
+      links: {
+        github: "https://github.com/DHenson1337/Phaser-Apple-Game",
+        live: "https://dhenson1337-phaser-orchard-run.netlify.app/",
+      },
+    },
 
     // Add more sample quests... someday
   ];
