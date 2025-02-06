@@ -1,7 +1,7 @@
 /* Guild Area layout */
 .guild-container {
   display: grid;
-  grid-template-columns: 450px 1fr;
+  grid-template-columns: min(450px, 40%) 1fr; /* Makes left panel responsive */
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
@@ -16,6 +16,7 @@
   flex-direction: column;
   height: 100%;
   transform-origin: bottom center;
+  justify-content: flex-end;
 }
 
 .right-panel {
@@ -24,116 +25,73 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--wood-primary-dark) transparent;
+  padding: 1rem;
 }
 
-.right-panel::-webkit-scrollbar {
-  width: 6px;
+/* Z-index layering */
+.left-panel .receptionist-section {
+  position: relative;
+  z-index: 1;
 }
 
-.right-panel::-webkit-scrollbar-track {
-  background: transparent;
+.left-panel .desk {
+  position: relative;
+  z-index: 2;
+  margin-top: -150px;
 }
 
-.right-panel::-webkit-scrollbar-thumb {
-  background-color: var(--wood-primary-dark);
-  border-radius: 20px;
+/* Account for different receptionist heights */
+body:not(.dark-theme) .left-panel .receptionist-section {
+  margin-bottom: -50px; /* Adjust for taller receptionist */
 }
 
-.right-panel::-webkit-scrollbar-thumb:hover {
-  background-color: var(--wood-primary-light);
-}
-
-/* Responsive scaling for left panel */
-@media screen and (max-height: 800px) {
+/* Responsive scaling */
+@media screen and (max-width: 1440px) {
   .left-panel {
     transform: scale(0.9);
   }
 }
 
-@media screen and (max-height: 700px) {
+@media screen and (max-width: 1024px) {
   .left-panel {
     transform: scale(0.8);
   }
 }
 
-@media screen and (max-height: 600px) {
+@media screen and (max-width: 768px) {
+  .guild-container {
+    grid-template-columns: min(350px, 45%) 1fr;
+  }
+
   .left-panel {
     transform: scale(0.7);
   }
 }
 
-/* Regular media queries */
-@media (max-width: 1920px) {
-  .character-wrapper {
-    width: clamp(400px, 20vw, 600px);
-    transform: translateY(-50%);
-  }
-
-  .character-image {
-    max-width: 390px;
-  }
-}
-
-@media (min-width: 2000px) {
+@media screen and (max-width: 480px) {
   .guild-container {
-    height: calc(100vh - 120px);
-  }
-}
-
-@media (max-width: 1440px) {
-  .guild-container {
-    height: calc(100vh - 120px);
+    grid-template-columns: min(250px, 40%) 1fr;
   }
 
   .left-panel {
-    transform: scale(0.95);
+    transform: scale(0.6);
   }
 }
 
-@media (max-width: 1024px) {
-  .guild-container {
-    height: calc(100vh - 120px);
-  }
-
+/* Height-based scaling */
+@media screen and (max-height: 800px) {
   .left-panel {
-    transform: scale(0.9);
-  }
-}
-
-/* Tablet and below */
-@media screen and (max-width: 768px) {
-  .guild-container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: calc(100vh - 120px);
-  }
-
-  .left-panel {
-    width: 100%;
-    height: auto;
-    min-height: 500px;
-    order: 2;
     transform: scale(0.85);
   }
-
-  .right-panel {
-    width: 100%;
-    padding: 1rem;
-    order: 1;
-    height: auto;
-  }
 }
 
-/* Mobile L */
-@media screen and (max-width: 425px) {
+@media screen and (max-height: 700px) {
   .left-panel {
     transform: scale(0.75);
   }
 }
 
-/* Mobile S */
-@media screen and (max-width: 320px) {
+@media screen and (max-height: 600px) {
   .left-panel {
     transform: scale(0.65);
   }
