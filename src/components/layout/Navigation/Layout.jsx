@@ -33,7 +33,7 @@ function Layout() {
             alt="Guild Logo"
             className="guild-logo"
           />
-          <h1>The Guild Reception Desk</h1>
+          <h1>Davon Henson Portfolio</h1>
         </div>
         <nav className="nav-container">
           <div className="nav-links">
